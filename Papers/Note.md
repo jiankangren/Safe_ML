@@ -37,7 +37,9 @@ Interptable models exclude features that are not causally related to the outcome
 
   *  [“Why Should I Trust You? Explaining the Predictions of Any Classifier](http://www.kdd.org/kdd2016/papers/files/rfp0573-ribeiroA.pdf) Ribeiro et al., KDD 2016
 
-    > The general idea is simple.  Use a simple  model with (fewer but meaningfull features) to learn the function of the complicated model at a local point to explain that prediction.
+    > The general idea is simple.  Use a simple  model with (fewer but meaningfull features) to learn the function of the complicated model at a local point to explain that prediction.  
+    >
+    > * can be used to explain a the model makes such a prediction. Thus, can be used to analyze the wrong prediction.
 
   * Anchors: High-Precision Model-Agnostic Explanations AAAI
 
