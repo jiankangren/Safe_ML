@@ -1,0 +1,33 @@
+Package: iml.book
+Title: Interpretable machine learning
+Version: 0.0.1
+Imports:
+  bookdown,
+  ggplot2,
+  mlbench,
+  knitr,
+  dplyr,
+  tidyr,
+  data.table,
+  mlr,
+  rpart,
+  partykit,
+  randomForest,
+  gridExtra,
+  caret,
+  e1071,
+  tm,
+  svglite,
+  mmpf,
+  numDeriv,
+  DT,
+  xgboost,
+  lubridate,
+  lime,
+  pre,
+  shiny,
+  roxygen2,
+  memoise, 
+  gridExtra
+Remotes: christophM/interpretable-ml-book
+
