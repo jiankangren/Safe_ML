@@ -5,6 +5,69 @@ import itertools
 import pudb
 from plot import *
 
+
+class Data(object):
+    """docstring for Data"""
+    def __init__(self,data,**kwargs):
+        """
+        Parameters
+        ----------
+        data:   numpy array data and last column is lael
+        X: input  data
+        Y: target data
+   
+        Returns
+        -------
+        score : the final score
+        """
+        super(Data, self).__init__()
+        if not isinstance (data,np.ndarray):
+            self.data=np.array(data)
+        self.X=self.data[:,:-1]
+        self.Y=self.data[:,-1]
+
+    @property
+    def n_columns(self):
+        nc=self.data.shape[1]
+        if nc>0:
+            return int(nc)
+        else:
+            raise AttributeError('Data set is empty')
+    @property
+    def column_names(self):
+        if 'column_names' not in self.__dict__.keys():
+            names=['index '+str(i) for i in xrange(0,self.n_columns)]
+            mydic={}
+            for i, name in enumerate(names):
+                mydic[i]=str(name)  
+            self.__dict__['column_names']=mydic
+        return self.__dict__['column_names']
+        
+    @column_names.setter
+    def column_names(self,names=None):
+
+        n_names=len(names)
+        if n_names != self.n_columns:
+            raise AttributeError('Column Name Length Conflict')
+        mydic={}
+        for i, name in enumerate(names):
+            mydic[i]=str(name)  
+        self.__dict__['column_names']=mydic
+    @property
+    def feature_limit(self): 
+        ranges={}
+        for j in xrange(0,self.n_feature):
+            ranges[j]=(min(self.data[:,j]), max(self.data[:,j]))
+        return ranges
+        F={}
+        for i in xrange(0,self.n_feature):
+            key1=(i,0)
+            key2=(i,1)
+            F[key1]=self.ranges[i][1]
+            F[key2]=self.ranges[i][0]
+        return F
+            
+
 class CTree(object):
     '''
     -----------------------------------
@@ -316,6 +379,9 @@ class CTree(object):
         return Rules
 
 
+def merge_rules(Rules):
+    
+
 
 
     
@@ -347,8 +413,8 @@ def samples_generator(n_samples):
     data=np.concatenate((X, y), axis=1)
 
 
-    a=np.linspace(min(data[:,0]),max(data[:,0]),10,endpoint=True)
-    b=np.linspace(min(data[:,1]),max(data[:,1]),10,endpoint=True)
+    a=np.linspace(min(data[:,0]),max(data[:,0]),20,endpoint=True)
+    b=np.linspace(min(data[:,1]),max(data[:,1]),20,endpoint=True)
     s=np.array(list(itertools.product(a, b)))
     y=[[999]]*len(s)# 999 represents the virtual class
     ds=np.concatenate((s, y), axis=1)
@@ -380,7 +446,7 @@ if __name__=='__main__':
 
 
 
-    data=samples_generator(200)
+    data=samples_generator(2000)
     
     # print data
     ctree=CTree(data)
@@ -389,7 +455,7 @@ if __name__=='__main__':
     # print ctree.n_feature
     # print ctree.data_split(data,0,0)
     # root =ctree.best_split(data,GiniFunc)
-    tree =ctree.build_tree(max_depth= 15, min_size= 10,purity_threshold=0.95)
+    tree =ctree.build_tree(max_depth= 50, min_size= 10,purity_threshold=0.95)
     print tree
     
     

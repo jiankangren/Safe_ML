@@ -91,5 +91,5 @@ def plot_scatter(data,NUM_COLORS = 5): #2d scatter
         C=data[key]
         x,y=C[:,0],C[:,1]
         area = [20]*len(x)  # 0 to 15 point radii
-        if c!=999:
+        if c!=-1:
             plt.scatter(x, y, s=area,  alpha=0.5)
