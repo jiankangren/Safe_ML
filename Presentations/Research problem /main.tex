@@ -66,15 +66,15 @@
 % does not look nice, try deleting the line with the fontenc.
 
 
-\title[]{Machine Learning in Safety-Critical Domain} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[]{Assured Machine Learning} % The short title appears at the bottom of every slide, the full title is only on the title page
 
 %\subtitle
-\author[]{Arvind Easwaran}
-\institute[NTU]{ Nanyang Technological University, Singapore}
+\author[]{Xiaozhe Gu, Arvind Easwaran}
+\institute[NTU]{School of Computer Science and Engineering \\ Energy Research Institute (ERI@N) \\ \vspace{2mm} Nanyang Technological University, Singapore}
 
 
 
-\date[08/07/2015]{June 25, 2018}
+\date[June, 2018]{June, 2018}
 
 
 
@@ -116,22 +116,22 @@
 
 
 
-\begin{frame}[t]{Machine Learning  Application in Safety Critical Environments}
+\begin{frame}[t]{Machine Learning  Applications in Safety-Critical Environments}
 \begin{columns}[T] % align columns
 \begin{column}[t]{.52\textwidth}
 \color{red}\rule{\linewidth}{2pt}
 \vspace{-5mm}
 \begin{itemize}
 \visible<1,2,3>{
-  \item Decision making in life-threatening conditions (diagnosis, prognosis,machine learning-based medical decision support systems).}
+  \item Decision making in life-threatening conditions (Machine-Learning (ML) based medical decision support systems)}
   \visible<2,3>{
-  \item  Robots (surgical robots, industrial robots, etc)}
+  \item  Robots (surgical robots, industrial robots, etc.)}
   \visible<3>{
-    \item  Autonomous vehicles.
+    \item  Autonomous vehicles
 
 \begin{figure}[h]
 \centering
-\caption{Autonomous Bus}
+\caption{Autonomous Shuttle}
 \includegraphics[scale=0.07]{fig/car.jpeg} 
 \end{figure}
 }
@@ -147,11 +147,12 @@
 \visible<1,2,3>{
 \begin{figure}[h]
 \centering
-\caption{Machine Learning Based Brain Disease Diagnosis$^1$}
+\caption{ML Based Brain Disease Diagnosis$^1$}
 \includegraphics[scale=0.2]{fig/medical.png} 
 \end{figure}
 }
 
+\vspace{-10mm}
 \visible<2,3>{
  \begin{figure}[h]
 \centering
@@ -171,21 +172,24 @@
 
 
 
-\begin{frame}[t]{Challenges to Achieve Safety}
+\begin{frame}[t]{Challenges to Safety Assurance}
 
 \setbeamercovered{transparent}
 \begin{itemize}
 \visible<1,2,3,4>{
-  \item  \textcolor{blue}{Non-transparency}: It is difficult to assess the reliability if  the reasoning behind  these models could not be understood.
+  \item  \textcolor{blue}{Non-transparency}: It is difficult to assess the reliability if  the reasoning behind  these models cannot be understood
+\vspace{2mm}
   }
   \visible<2,3,4>{
-  \item  \textcolor{blue}{Error Rate}:The estimate of error rate of a ML model with respect to the test data is not reliable.
+  \item  \textcolor{blue}{Error Rate}:The estimate of error rate of a ML model with respect to the test data is not reliable
+\vspace{2mm}
   }
   \visible<3,4>{
-  \item     \textcolor{blue}{Instability} A small change in the training process may produce a different result, and hence it is difficult to debug models or reuse parts of previous safety assessments.
+  \item     \textcolor{blue}{Instability}: A small change in the training process may produce a different result, and hence it is difficult to debug models or reuse parts of previous safety assessments.
+\vspace{2mm}
   }
   \visible<4>{
-  \item \textcolor{blue}{Difficulty in verification}: Formal verification of machine learning components is a difficult, and somewhat ill-posed problem due to the complexity of the underlying machine learning algorithms, large feature spaces.
+  \item \textcolor{blue}{Difficulty in verification}: Formal verification of ML components is a difficult, and somewhat ill-posed, problem due to the complexity of the underlying ML algorithms and large feature spaces
 }
 \end{itemize}
 
@@ -193,19 +197,19 @@
 
 
 
-\begin{frame}[t]{Potential Strategies for Achieving Safety}
+\begin{frame}[t]{Potential Strategies for Safety Assurance}
 \begin{columns}[T] % align columns
 \begin{column}[t]{.52\textwidth}
 \color{red}\rule{\linewidth}{2pt}
 \vspace{-5mm}
 \begin{itemize}
 \visible<1,2,3>{
-  \item  \textcolor{blue}{Interpretability \& Transparency}: Improve the  interpretability \& transparency of the ML component.}
+  \item  \textcolor{blue}{Interpretability \& Transparency}: Improve the  interpretability \& transparency of the ML component}
   \visible<2,3>{
-  \item   \textcolor{blue}{Safe Fail}: The model reports that it cannot reliably give a prediction and does not attempt to do so, thereby failing safely. 
+  \item   \textcolor{blue}{Fail-Safe}: The model reports that it cannot reliably give a prediction and does not attempt to do so, thereby failing safely 
   }
   \visible<3>{
-    \item \textcolor{blue}{Abstract}.  Abstract the ML component and  input  feature space  and identify scenarios that could cause violation of safety specification.
+    \item \textcolor{blue}{Abstract}: Abstract the ML component and input feature space, and identify scenarios that could cause violation of safety specifications
 }
 \end{itemize}
 
@@ -219,16 +223,18 @@
 \visible<1,2,3>{
 \begin{figure}[h]
 \centering
-\caption{Explanations make the user to trust the prediction~\cite{lime}}
+\caption{Explanations improve trust in prediction~\cite{lime}}
 \includegraphics[scale=0.25]{fig/lime.png} 
 \end{figure}
 }
 
 
+\vspace{-2mm}
 \visible<2,3>{
 \color{black}
-A technique used in machine learning when predictions cannot be given confidently is the {\color{red} reject option}~\cite{reject}.
+Technique used in ML when predictions cannot be given confidently is the {\color{red} reject option}~\cite{reject}
 
+\vspace{-3mm}
 \begin{small}
   \begin{align*}
   \hat y(x)=\begin{cases}-1~\mbox{ if  }\phi(x)\leq t\\\mbox{reject, if }\phi( x)\in(-t,t)\\1~\mbox{ if  }\phi(x)\geq t\end{cases}
@@ -255,11 +261,14 @@ A technique used in machine learning when predictions cannot be given confidentl
 \begin{thebibliography}{1}
 
 \bibitem{}http://mlcenter.postech.ac.kr/healthcare
+\vspace{2mm}
 
 
 \bibitem{}https://www.wired.com/2015/03/google-robot-surgery/
+\vspace{2mm}
 
 \bibitem{lime} Ribeiro, Marco Tulio, Sameer Singh, and Carlos Guestrin. "Why should i trust you?: Explaining the predictions of any classifier." Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. ACM, 2016.
+\vspace{2mm}
 
 \bibitem{reject} Bartlett P L, Wegkamp M H. Classification with a reject option using a hinge loss[J]. Journal of Machine Learning Research, 2008, 9(Aug): 1823-1840.
 
