@@ -1,69 +1,57 @@
-% $Header: /cvsroot/latex-beamer/latex-beamer/solutions/generic-talks/generic-ornate-15min-45min.en.tex,v 1.5 2007/01/28 20:48:23 tantau Exp $
-
 \documentclass{beamer}
 
-\usetheme{Madrid}
-\usecolortheme{beaver}
-\usepackage{graphicx} % Allows including images
-\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
-\usepackage{xcolor}
-
+\usetheme[plain]{NTU}
 
 \usepackage[absolute,overlay]{textpos}
 \usepackage{tikz}
-\usepackage{pgfgantt}
-\usetikzlibrary{backgrounds}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{tikz} % For drawing diagrams
+\usetikzlibrary{shapes,arrows,positioning,automata,fit}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
 
-% This file is a solution template for:
-
-% - Giving a talk on some subject.
-% - The talk is between 15min and 45min long.
-% - Style is ornate.
-
- \newcommand<>{\PutAt}[3][0pt]{%
+\newcommand<>{\PutAt}[3][0pt]{%
     {\only#4{\begin{textblock*}{#1}#2%
       #3
     \end{textblock*}}}%
-  }
+}
 
-
+\newcommand{\ShowPutAtGrid}{
+    \begin{textblock*}{128mm}(0cm,0cm)
+    \tikz[color=red!20!white]\draw[very thin, step=5mm] (0mm,0mm) grid (130mm,100mm);
+    \end{textblock*}
+    \begin{textblock*}{128mm}(0cm,0cm)
+    \begin{tikzpicture}[color=red]
+      \draw[step=1cm] (0,0mm) grid (130mm,100mm);   
+      \foreach \n in {0,...,12}
+        \draw[xshift=.5mm,yshift=-1.5mm, inner sep=0pt, anchor=west] (\n,10) node {\scriptsize{\textbf{\n}}};
+      \foreach \n in {1,...,9}
+        \draw[xshift=.5mm,yshift=-1.5mm, inner sep=0pt, anchor=west] (0,10-\n) node {\scriptsize{\textbf{\n}}};
+    \end{tikzpicture}
+    \end{textblock*}
+}
 
 \newcommand<>{\NormalBox}[2][]{%
   \only#3{\tikz[#1, every node/.style={shape=rectangle,draw,fill=white, #1}]\node []{#2};}
 }
 
-\definecolor{olive}{rgb}{0.3, 0.4, .1}
-\definecolor{fore}{RGB}{249,242,215}
-\definecolor{back}{RGB}{51,51,51}
-\definecolor{title}{RGB}{255,0,90}
-\definecolor{dgreen}{rgb}{0.,0.6,0.}
-\definecolor{gold}{rgb}{1.,0.84,0.}
-\definecolor{JungleGreen}{cmyk}{0.99,0,0.52,0}
-\definecolor{BlueGreen}{cmyk}{0.85,0,0.33,0}
-\definecolor{RawSienna}{cmyk}{0,0.72,1,0.45}
-\definecolor{Magenta}{cmyk}{0,1,0,0}
+\setbeamercolor{blue}{fg=blue!50!black}
+\setbeamercolor{red}{fg=red!80!black}
+\setbeamercolor{magenta}{fg=brown!50!red!60!black}
 
-
-
-\newtheorem{algorithm}{Algorithm}
-
+\newcommand{\blue}{blue!50!black} 
+\newcommand{\red}{red!80!black} 
+\newcommand{\green}{yellow!95!black} 
+\newcommand{\magenta}{brown!50!red!60!black}
 
 \newcommand*\oldmacro{}%
 \let\oldmacro\insertshorttitle%
 \renewcommand*\insertshorttitle{%
   \oldmacro\hfill%
   \insertframenumber\,/\,\inserttotalframenumber}
-
-\usepackage[english]{babel}
-% or whatever
-
-\usepackage[latin1]{inputenc}
-% or whatever
-
-\usepackage{times}
-\usepackage[T1]{fontenc}
-% Or whatever. Note that the encoding and the font should match. If T1
-% does not look nice, try deleting the line with the fontenc.
 
 
 \title[]{Assured Machine Learning} % The short title appears at the bottom of every slide, the full title is only on the title page
@@ -75,11 +63,6 @@
 
 
 \date[June, 2018]{June, 2018}
-
-
-
-\pgfdeclareimage[height=0.7cm]{university-logo}{logo.png}
-\logo{\pgfuseimage{university-logo}}
 
 
 
@@ -119,6 +102,7 @@
 \begin{frame}[t]{Machine Learning  Applications in Safety-Critical Environments}
 \begin{columns}[T] % align columns
 \begin{column}[t]{.52\textwidth}
+\vspace{-10mm}
 \color{red}\rule{\linewidth}{2pt}
 \vspace{-5mm}
 \begin{itemize}
@@ -142,8 +126,10 @@
 
 
 \begin{column}[t]{.44\textwidth}
-\color{blue}\rule{\linewidth}{2pt}
 \vspace{-10mm}
+\color{blue}\rule{\linewidth}{2pt}
+\vspace{-5mm}
+
 \visible<1,2,3>{
 \begin{figure}[h]
 \centering
@@ -199,7 +185,8 @@
 
 \begin{frame}[t]{Potential Strategies for Safety Assurance}
 \begin{columns}[T] % align columns
-\begin{column}[t]{.52\textwidth}
+\begin{column}[t]{.56\textwidth}
+\vspace{-10mm}
 \color{red}\rule{\linewidth}{2pt}
 \vspace{-5mm}
 \begin{itemize}
@@ -217,7 +204,8 @@
 \hfill%
 
 
-\begin{column}[t]{.44\textwidth}
+\begin{column}[t]{.4\textwidth}
+\vspace{-10mm}
 \color{blue}\rule{\linewidth}{2pt}
 \vspace{-10mm}
 \visible<1,2,3>{
