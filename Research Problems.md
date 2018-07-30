@@ -17,6 +17,7 @@
     $$
 
 
+
  If the answer to  **Q1.3**  is  **yes**, 
 
 * **Q1.4**:  should the safe layer model from the training data or only approximate $f(\mathbb x)$ based on sampling 
@@ -55,6 +56,10 @@
 
 
 ### ML with Reject Option
+
+> In classification, predictive probabilities obtained at the end of the pipeline (the softmax output) are often erroneously interpreted as model confidence. A model can be uncertain in its predic- tions even with a high softmax output (fig. 1). Passing a point estimate of a function (solid line 1a) through a soft- max (solid line 1b) results in extrapolations with unjustified high confidence for points far from the training data. x∗ for example would be classified as class 1 with probability 1. 
+>
+> Role of prior distribution : https://stats.stackexchange.com/questions/200982/do-bayesian-priors-become-irrelevant-with-large-sample-size
 
 
 

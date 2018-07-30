@@ -133,7 +133,7 @@ Machine learning algorithms are increasingly influencing our lives, and moving i
     \item Autonomous Weapons
     \begin{figure}[h]
     \centering
-    \caption{SGR-A1 (wikipedia)}
+    \caption{SGR-A1 (Source: wikipedia)}
     \includegraphics[scale=0.1]{image/SGR.jpg} 
     \end{figure}
 % \tiny{wikipedia.org:SGR-A1}
@@ -177,7 +177,7 @@ Machine learning algorithms are increasingly influencing our lives, and moving i
 \only<5>{
 \begin{figure}[h]
 \centering
-\caption{keelvar.com}
+\caption{Source: keelvar.com}
 \includegraphics[scale=0.2]{image/MAARS.jpg} 
 \end{figure}
 % \color{black}\tiny{keelvar.com
@@ -197,7 +197,7 @@ Machine learning algorithms are increasingly influencing our lives, and moving i
 \begin{frame}[t]{Traditional Programing versus Machine Learning}
 
 \begin{columns}[T] % align columns
-\begin{column}[t]{.45\textwidth}
+\begin{column}[t]{.5\textwidth}
 \color{red}\rule{\linewidth}{2pt}\color{black}
 \begin{figure}[h]
 \centering
@@ -210,7 +210,7 @@ Traditional programming involves static program instructions  \colorbox{blue!30}
 \end{column}
 \hfill%
 
-\begin{column}[t]{.55\textwidth}
+\begin{column}[t]{.5\textwidth}
 \vspace{-5mm}
 
 \color{blue}\rule{\linewidth}{2pt} \color{black}
@@ -222,7 +222,7 @@ Traditional programming involves static program instructions  \colorbox{blue!30}
 \includegraphics[scale=0.5]{image/mlprogram} 
 \end{figure}
 \justifying
-ML is a technique that enables computers to learn autonomously and to improve from experience  \colorbox{blue!30}{without being explicitly programmed}
+ML is a technique that enables computers to learn autonomously and to improve from experience  \colorbox{blue!30}{without being explicitly} \colorbox{blue!30}{ programmed}
 }
 
 \end{column}%
@@ -261,28 +261,51 @@ Bostrom et al.\cite{Bostrom} refer to  safety as  \emph{`` techniques that ensur
 \setbeamercovered{transparent}
 \begin{itemize}
 \justifying
-\visible<1,2,3,4,5>{
+\only<1,2,4,5,6>{
   \item  \textcolor{blue}{Non-transparency}:   The reasoning behind some powerful ML models is not known.
    % It is difficult to assess the reliability if the reasoning behind  ML models cannot be understood
   }
-  \visible<2,3,4,5>{
+  \only<2,3,4,5,6>{
   \item  \textcolor{blue}{Unmodeled phenomena}: It is not impossible and not desired to model everything.
   % It is impossible to model everything, and  any ML model typically operate with certain error rates.
   % Incomplete  training set
 
   }
-  \visible<3,4,5>{
+  \only<3>{
+We train a model to \colorbox{blue!30}{recognise dog breeds}, but are given a \colorbox{blue!30}{cat} to classify.
+\begin{figure}
+\centering
+\begin{minipage}{.6\textwidth}
+  \centering
+  \includegraphics[width=.6\linewidth]{image/dog.png}
+\end{minipage}%
+\begin{minipage}{.4\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{image/cat.png}
+\end{minipage}
+\end{figure}
+
+  }
+  \only<4,5,6>{
   \item     \textcolor{blue}{Instability}: A small change in the training process may produce a different result.
   % : A small change in the training process may produce a different result, and hence it is difficult to debug models or reuse parts of previous safety assessments.
   }
-  \visible<4,5>{
+\only<5>{
+  \begin{figure}[h]
+\centering
+\caption{Little variation in training procedure produce different classification rule}
+\includegraphics[scale=0.15]{image/dtvariance} 
+\end{figure}
+}
+
+  \only<6>{
   \item \textcolor{blue}{Difficulty in verification}: Formal verification of ML components is a difficult, and somewhat ill-posed  problem.
   % : Formal verification of ML components is a difficult, and somewhat ill-posed, problem due to the complexity of the underlying ML algorithms and large feature spaces
 }
-  \visible<5>{
-\item \textcolor{blue}{Incorrect specification}: The incorrect specification objective function  can result in harmful and unintended results.
-% he incorrect specification of the formal objective function, where the agent designed and deployed by a human optimises an objective function that results in harmful and unintended results
-}
+%   \only<>{
+% \item \textcolor{blue}{Incorrect specification}: The incorrect specification objective function  can result in harmful and unintended results.
+% % he incorrect specification of the formal objective function, where the agent designed and deployed by a human optimises an objective function that results in harmful and unintended results
+% }
 \end{itemize}
 
 \end{frame}
@@ -313,13 +336,16 @@ Understanding the reasons behind model/prediction is, however, quite important i
 
 
 
-\begin{frame}[t]{ Interpretable Models}
+\begin{frame}[t]{Interpretable Models}
 \color{red}\rule{\linewidth}{2pt}\color{black}
 
 Very common model types of interpretable models are:
 \begin{itemize}
-\only<1,2>{
-\item Linear regression model $y=w^T.\mathbf x+\epsilon=w_0+\sum_{i=1}^m w_ix_i+\epsilon$.  
+\only<1>{
+\item Linear regression model
+\begin{align*}
+  y&=w^T.\mathbf x+\epsilon\\&=w_0+\sum_{i=1}^m w_ix_i+\epsilon
+\end{align*}  
 }
 \only<2>{
 \item Decision trees.
@@ -340,6 +366,24 @@ If  $-3\leq x1\leq 0$ and $-2\leq x2\leq -0.5$: then $y=+1$
 \includegraphics[scale=0.25]{image/decisionrule.png} 
 \end{figure}
 }
+\only<4>{
+\item Naive Bayes classifier
+\begin{align*}
+  P(y|x_1...x_d)&=\frac{P(y)P(x_1...x_d|y)}{P(x_1...x_d)}\\
+&=\frac{P(y)\prod_{i=1}^d P(x_i|y)}{P(x_1...x_d)}\\
+& \propto  P(y)\prod_{i=1}^d P(x_i|y)\\
+\Rightarrow & y=\arg\max_y P(y)P(y)\prod_{i=1}^d P(x_i|y)
+\end{align*}
+ 
+}
+\only<5>{
+\item  k-Nearest Neighbors
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.25]{image/knn.png} 
+\caption{KNN (Source:wikipedia) }
+\end{figure}
+}
 
 \end{itemize}
 
@@ -349,7 +393,7 @@ If  $-3\leq x1\leq 0$ and $-2\leq x2\leq -0.5$: then $y=+1$
 \end{frame}
 
 
-\begin{frame}[t]{Prediction Explanation}
+\begin{frame}[t]{Explanation the Prediction}
 
 \color{red}\rule{\linewidth}{2pt}\color{black}
 
@@ -359,7 +403,7 @@ Explain the prediction of a classifier by approximating it locally with an inter
 
 \begin{figure}[h]
 \centering
-\caption{The black-box model's complex decision represented by the blue/pink background is approximated locally by a linear model.}
+\caption{The black-box model's complex decision represented by the blue/pink background is approximated locally by a linear model~\cite{lime}.}
 \includegraphics[scale=0.3]{image/lime2.png} 
 \end{figure}
 }
@@ -367,7 +411,7 @@ Explain the prediction of a classifier by approximating it locally with an inter
 With the explanation of a prediction, a doctor can make an informed decision about whether to trust the model's prediction.
 \begin{figure}[h]
 \centering
-\caption{Explaining individual predictions}
+\caption{Explaining individual predictions~\cite{lime}}
 \includegraphics[scale=0.45]{image/lime.png} 
 \end{figure}
 
@@ -427,8 +471,9 @@ When the model selects the reject option,   \colorbox{blue!30}{a human operator}
 }
 \end{frame}
 
-\begin{frame}[t]{Distance from Decision Boundary}
+\begin{frame}[t]{Confidence: Distance from Decision Boundary}
 
+\justifying
 
 In classification problems, classifier  implicitly assumes  that distance from the decision boundary is inversely related to confidence~\cite{errorbound}. 
 
@@ -438,12 +483,13 @@ In classification problems, classifier  implicitly assumes  that distance from t
 \color{red}\rule{\linewidth}{2pt} \color{black}
 
 \vspace{-5mm}
-
+\only<1,2>{
 \begin{figure}[h]
 \centering
 \caption{Decision Boundary}
 \includegraphics[scale=0.6]{image/decisionboundary} 
 \end{figure}
+}
 
 \end{column}%
 
@@ -453,9 +499,10 @@ In classification problems, classifier  implicitly assumes  that distance from t
 \color{blue}\rule{\linewidth}{2pt} \color{black}
 \vspace{-5mm}
 
-\visible<2>{
-This is reasonable because the decision boundary is located where there is a large overlap in likelihood functions.
+\only<2>{
+This is reasonable \emph{to some degree} because the decision boundary is located where there is a large overlap in likelihood functions.
 }
+
 
 \end{column}%
 \end{columns}
@@ -463,7 +510,12 @@ This is reasonable because the decision boundary is located where there is a lar
 \end{frame}
 
 
-\begin{frame}[t]{Ensemble Classification}
+
+
+
+\begin{frame}[t]{Confidence: Votes}
+\justifying
+
 \color{red}\rule{\linewidth}{2pt} \color{black}
 
 In ensemble classification,   the overall decision $\hat y$ is based on the average classification of the base classifiers  $\hat y_i(.)$, 
@@ -473,7 +525,7 @@ In ensemble classification,   the overall decision $\hat y$ is based on the aver
 
 \color{blue}\rule{\linewidth}{2pt} \color{black}
 \visible<2>{
-The reject option of ensemble binary classification  is based on the   \colorbox{blue!30}{votes of the base classifiers}
+The reject option of ensemble binary classification  is based on the   \colorbox{blue!30}{votes of the base classifiers\cite{errorbound}}
  \begin{align*}
   \hat y(x)=\begin{cases}-1~\mbox{ if  }\phi(\mathbf x)\leq t_1\\\mbox{reject, if }\phi( x)\in(t_1,t_2)\\1~\mbox{ if  }\phi(x)\geq t_2\end{cases}
 \end{align*}
@@ -482,8 +534,39 @@ The reject option of ensemble binary classification  is based on the   \colorbox
 
 \end{frame}
 
-\begin{frame}[t]{Gaussian Process}
+\begin{frame}[t]{Confidence: Softmax Output}
+\justifying
+
+\color{red}\rule{\linewidth}{2pt} \color{black}
+
+\only<1,2>{
+In neural network, predictive probabilities obtained at the end of the softmax output are often erroneously interpreted as model confidence~\cite{nntogp}. 
+\[
+ P(y=j|\mathbf {x})=\frac { e^{\mathbf {x}^{\mathsf T} \mathbf w_j}}{
+ \sum _{k=1}^{K}   e^{\mathbf x ^{\mathsf T}\mathbf w_k}}
+\]
+}
+
+\color{blue}\rule{\linewidth}{2pt} \color{black}
+
+
+\only<2>{
+However, a model can be uncertain in its predictions even with a high softmax output~\cite{nntogp}.
+}
+
+
+
+\end{frame}
+
+
+
+
+\begin{frame}[t]{Prediction Uncertainty: Gaussian Process}
 A Gaussian process defines a distribution over functions $p(f)$  where $f$ is a function mapping some input space $\mathcal X\rightarrow \mathbb R$.
+\only<1>
+{\[ p(\mathbf f)\sim \mathcal N(0,\Sigma)=(\frac{1}{2\pi |\Sigma|})^{D/2}\exp (-1/2 \mathbf f^T \Sigma^{-1}\mathbf f)\]
+}
+\only<2>{
 
 
  \begin{columns}[T] % align columns
@@ -496,9 +579,6 @@ A Gaussian process defines a distribution over functions $p(f)$  where $f$ is a 
 \caption{One-dimensional Regression}
 \includegraphics[scale=0.35]{image/gp1.png} 
 \end{figure}
-
-
-
 \end{column}%
 
 \begin{column}[t]{.35\textwidth}
@@ -514,13 +594,47 @@ Thus, we can reject to predict for input input $\mathbf x$ with larger standard 
 \end{column}%
 \end{columns}
 
-
+}
 
 
 \end{frame}
 
 
-\begin{frame}[t]{Conformal Prediction: Machine Learning with Confidence Intervals} 
+
+\begin{frame}[t]{Prediction Uncertainty: Bayesian Neural Network} 
+\justifying
+\color{red}\rule{\linewidth}{2pt} \color{black}
+A Bayesian neural network is a neural network with a prior distribution on its weights~\cite{bnn12}, e.g., 
+\[
+p( \mathbf w)\sim \mathcal N(0, \sigma^2 I)
+\]
+
+\only<1>
+{
+\begin{figure}[h]
+\centering
+\caption{Prior distribution on weight~\cite{bnn12}}
+\includegraphics[scale=0.35]{image/prior.png} 
+\end{figure}
+}
+
+\only<2,3>{
+posterior: 
+\[
+P(\mathbf w|Y,X) \propto P(Y|\mathbf w,X)p(\mathbf w)
+\]
+}
+\only<3>{
+Inference:
+\[
+p(\mathbf y_*|\mathbf x_*,X,Y)=\int p(\mathbf y_*|\mathbf x_*,\mathbf w)p(\mathbf w|X,Y)d_{\mathbf w}
+\]
+}
+
+\end{frame}
+
+
+\begin{frame}[t]{Prediction with Confidence Intervals: Conformal Prediction} 
 \justifying
 The conform prediction~\cite{conform} gives us valid  bounds $[f(\mathbf x)-\epsilon_1,f(\mathbf x)+\epsilon_2]$ for any model such that the prediction region contains the true output with probability $\alpha$.
 
@@ -557,30 +671,79 @@ It is not impossible for ML  to model everything. Thus, if the model recognize t
 \section{Verification of ML}
 
 \begin{frame}[t]{Challenges for Verified ML} 
+
 \justifying
 \color{red}\rule{\linewidth}{2pt} \color{black}
-
+\only<1>{
 The formal verification of ML components is a  \colorbox{blue!30}{difficult}, and somewhat  \colorbox{blue!30}{ill-posed} problem due to the  \colorbox{blue!30}{complexity} of the ML algorithms,  \colorbox{blue!30}{large feature spaces}~\cite{towardverify}.
+}
 
-\color{blue}\rule{\linewidth}{2pt} \color{black}
-
+\only<2,3,4>{
 \alert{Challenges to achieving formally-verified ML-based systems:}
 \begin{itemize}
 \justifying
-
-\only<1>{
-\item  Environment Modeling: \\ It may be impossible even to precisely define all the variables (features) of the environment that must be modeled, let alone to model all possible behaviors
-of the environment
-}
 \only<2>{
-\item Formal Specification: \\ It is difficult to  find an effective method to specify desired and undesired properties of  systems that use  ML-based components.
+\item  Environment Modeling: \\ It may be impossible even to precisely define all the variables (features) of the environment that must be modeled, let alone to model all possible behaviors of the environment.
+\begin{figure}
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{image/av1.jpeg}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{image/av2.jpg}
+\end{minipage}
+\end{figure}
+
+
 }
 \only<3>{
-\item   System Modeling: \\Unlike traditional applications of formal verification, the system S is precisely known, e.g., a C program,   ML  based system evolves as it encounters new data and new situations.
+\item Specification: \\ How to specify desired and undesired properties of ML components. For example, how to  \colorbox{blue!30}{formally specify  ``a dog ''}?
+
+\begin{figure}
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{image/dog.png}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{image/dog2.jpg}
+\end{minipage}
+\end{figure}
+
+}
+
+\only<4>{
+\item   System Modeling: \\Unlike traditional applications of formal verification,   ML  based system evolves as it encounters new data and new situations. Thus, it is difficult  reuse  the previous safety verification results.
+
 }
 \end{itemize}
-
+}
 \end{frame}
+
+
+
+\begin{frame}[t]{Go System-Level}
+
+\justifying
+\color{red}\rule{\linewidth}{2pt} \color{black}
+
+\begin{itemize}
+\item Instead of verifying  the  ML component directly, 
+\item Formally specify the end-to-end behavior of the system and  verify the system containing the  ML component~\cite{abstract}.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.25]{image/false.png} 
+\end{figure}
+\end{itemize}
+\only<2>{
+Specification: Always (dist(ego vehicle, env object) $>\Delta$)
+}
+\end{frame}
+
+
+
+
 
 \begin{frame}[t]{Approximate Model in Abstract Space} 
 \justifying
@@ -622,6 +785,8 @@ A simpler approximate function $\hat f $ of origin model $f$ on the abstract dom
 \end{frame}
 
 
+
+
 \begin{frame}[t]{Reduce the Problem}
 
 \begin{itemize}
@@ -647,6 +812,8 @@ output set, red spots: 5000 random outputs located in the estimated output set~\
 
 
 \end{frame}
+
+
 
 
 
@@ -677,6 +844,13 @@ output set, red spots: 5000 random outputs located in the estimated output set~\
 \bibitem{abstract} Tommaso Dreossi, Alexandre Donze,  Sanjit A. Seshia, Compositional Falsification of Cyber-Physical Systems with Machine Learning Components, Preprint/
 
 \bibitem{reduce} Weiming Xiang and Taylor T. Johnson, Reachability Analysis and Safety Verification for Neural  Network Control Systems,Preprint.
+
+\bibitem{nntogp} Gal Y, Ghahramani Z. Dropout as a Bayesian approximation: Representing model uncertainty in deep learning[C]//international conference on machine learning. 2016: 1050-1059.
+ 
+\bibitem{bnn12} Neal, R. M. (2012). Bayesian learning for neural networks (Vol. 118). Springer Science \& Business Media.
+
+
+
 \end{thebibliography}
 
 \end{document}
