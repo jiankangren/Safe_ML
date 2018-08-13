@@ -1,0 +1,118 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:latexdraw="http://latexdraw.sourceforge.net/namespaces/latexdraw"
+    version="1.1" baseProfile="full">
+    <g>
+        <g latexdraw:type="text" id="id1326706211" fill="black" latexdraw:position="bl">
+            <text x="225.0" y="35.0">\{[0,0],[1,1],[4,4],[5,5]\}</text>
+        </g>
+        <g latexdraw:type="text" id="id696188589" fill="black" latexdraw:position="bl">
+            <text x="275.0" y="75.0">$x_1\leq 1$</text>
+        </g>
+        <g latexdraw:type="rectangle" id="id120162511">
+            <rect x="221.0" y="41.0" width="158.0" height="58.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id1757549871">
+            <polyline points="300.0,100.0 220.0,140.0 "
+                stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id1742317558">
+            <polyline points="300.0,100.0 380.0,140.0 "
+                stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id1637280574">
+            <rect x="121.0" y="141.0" width="158.0" height="58.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none"/>
+        </g>
+        <g latexdraw:type="text" id="id1071163421" fill="black" latexdraw:position="bl">
+            <text x="125.0" y="135.0">\{[0,0],[1,1]\}</text>
+        </g>
+        <g latexdraw:type="rectangle" id="id167565636">
+            <rect x="321.0" y="141.0" width="158.0" height="58.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none"/>
+        </g>
+        <g latexdraw:type="text" id="id1652839791" fill="black" latexdraw:position="bl">
+            <text x="385.0" y="135.0">\{[[5,5],[4,4]\}</text>
+        </g>
+        <g latexdraw:type="text" id="id1941788335" fill="black" latexdraw:position="bl">
+            <text x="155.0" y="175.0">$x_1\leq 0$</text>
+        </g>
+        <g latexdraw:type="text" id="id525354175" fill="black" latexdraw:position="bl">
+            <text x="375.0" y="175.0">$x_3\leq 0$</text>
+        </g>
+        <g latexdraw:type="rectangle" id="id1601662617">
+            <rect x="221.0" y="221.0" width="58.0" height="58.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id31979937">
+            <rect x="121.0" y="221.0" width="58.0" height="58.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id1329941020">
+            <rect x="421.0" y="221.0" width="58.0" height="58.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id1463970862">
+            <rect x="321.0" y="221.0" width="58.0" height="58.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id504938644">
+            <polyline points="160.0,200.0 160.0,220.0 160.0,220.0 "
+                stroke-width="2.0" stroke="black" fill="none" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id193087025">
+            <polyline points="240.0,200.0 240.0,220.0 "
+                stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id843770934">
+            <polyline points="360.0,200.0 360.0,220.0 "
+                stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id299882982">
+            <polyline points="440.0,200.0 440.0,220.0 "
+                stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="text" id="id644801841" fill="black" latexdraw:position="bl">
+            <text x="125.0" y="255.0">\{[0,0]\}</text>
+        </g>
+        <g latexdraw:type="text" id="id1837841897" fill="black" latexdraw:position="bl">
+            <text x="225.0" y="255.0">\{[1,1]\}</text>
+        </g>
+        <g latexdraw:type="text" id="id1324048067" fill="black" latexdraw:position="bl">
+            <text x="325.0" y="255.0">\{[4,4]\}</text>
+        </g>
+        <g latexdraw:type="text" id="id1665465610" fill="black" latexdraw:position="bl">
+            <text x="425.0" y="255.0">\{[5,5]\}</text>
+        </g>
+    </g>
+    <defs/>
+    <metadata>
+        <latexdraw:metadata>
+            <latexdraw:latexIncludes/>
+            <latexdraw:displayXScale>true</latexdraw:displayXScale>
+            <latexdraw:displayYScale>true</latexdraw:displayYScale>
+            <latexdraw:unit>CM</latexdraw:unit>
+            <latexdraw:zoom>1.0</latexdraw:zoom>
+            <latexdraw:magneticGridStyle>CUSTOMISED</latexdraw:magneticGridStyle>
+            <latexdraw:gridGap>20</latexdraw:gridGap>
+            <latexdraw:magneticGrid>true</latexdraw:magneticGrid>
+            <latexdraw:version>3.3.2</latexdraw:version>
+            <latexdraw:size>
+                <latexdraw:width>1098</latexdraw:width>
+                <latexdraw:height>670</latexdraw:height>
+            </latexdraw:size>
+            <latexdraw:position>
+                <latexdraw:x>295.0</latexdraw:x>
+                <latexdraw:y>77.0</latexdraw:y>
+            </latexdraw:position>
+        </latexdraw:metadata>
+    </metadata>
+</svg>

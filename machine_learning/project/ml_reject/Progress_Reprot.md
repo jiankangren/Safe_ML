@@ -2,14 +2,6 @@
 
 
 
-- **Q1**:  Are there more complicated methods for ML with rejection except the ensembles models based on votes ?
-
-  - Thus, the first step is to literature review all the possible related works.
-
-### Related Work
-
-
-
 #### Reject Option
 
 These works implicitly assume that 
@@ -64,8 +56,6 @@ Yarin Gal,  Zoubin Ghahramani, Dropout as a Bayesian approximation: representing
 - **Q3**:  How to evaluate the proposed mechanism?   We need to come up with a metric to compare with other  methods, and find an application scenario.
 
 
-
-### How to use the fact the harzard event is rare to improve safety of ML.
 
 
 
@@ -130,3 +120,15 @@ http://archive.ics.uci.edu/ml/datasets/detection_of_IoT_botnet_attacks_N_BaIoT
 **BLE RSSI Dataset for Indoor localization and Navigation Data Set**  
 
 http://archive.ics.uci.edu/ml/datasets/BLE+RSSI+Dataset+for+Indoor+localization+and+Navigation
+
+
+
+
+
+### Progress
+
+* Step 1: Finish the pure python implementation
+
+* Step 2:  C implementation
+
+  

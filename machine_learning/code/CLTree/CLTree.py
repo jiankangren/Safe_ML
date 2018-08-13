@@ -379,7 +379,7 @@ class CTree(object):
         return Rules
 
 
-def merge_rules(Rules):
+
     
 
 
