@@ -1,6 +1,7 @@
 import numpy as np  
 import sys
-from base import XData
+from tree import *
+from base import *
 
 data = np.array([
     [-2.571244718,4.784783929,0],
@@ -20,6 +21,11 @@ data = np.array([
 )
 
 
-X=XData(data)
+X=Node(data)
 
 print np.searchsorted(data.T[2],1)
+
+
+X = np.array([[1],[2],[2.1],[3],[3.1],[5],[5.1]])
+node=Node(X,len(X))
+print best_spliter(node,GiniFunc)

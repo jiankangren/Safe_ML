@@ -1,7 +1,7 @@
 import abc
 from numpy import log2
 import numpy as np
-from base import XData
+
 
 
 class ScoreFunc(object):
@@ -13,14 +13,14 @@ class ScoreFunc(object):
 		super(ScoreFunc, self).__init__()
 
 	@abc.abstractmethod
-	def score(self, XData,i,s,n_left,n_right,n_empty): 
+	def score(self, Node,i,s,n_left,n_right,n_empty): 
 		"""
         Apply the score metric function
 
         Attributes
 		----------
-		XData :  base.XData
-            Input data for the current Split
+		Node :  base.Node
+            The current tree node
         i: int
             Feature index
         s: float
@@ -41,16 +41,12 @@ class GiniFunc(ScoreFunc):
         super(GiniFunc, self).__init__()
     
     @staticmethod
-    def score(Xdata,i,s,n_left,n_right,n_empty):
+    def score(node,i,s,n_left,n_right,n_empty):
         """
-        return 1 Gini Score for the split : IG_gain
-               2 Impurity for left child : IGL
-               3 Impurity for right child : IGR
+        return  Gini Score for the split : IG_gain
         """
-        if not isinstance (Xdata, XData):
-            raise ValueError("XData should be in base.XData format, got %s" % type(Xdata))
-        xmin=Xdata.feature_limit[i][0]
-        xmax=Xdata.feature_limit[i][1]
+        xmin=node.feature_limit[i][0]
+        xmax=node.feature_limit[i][1]
         L=float(xmax-xmin)
         E1=n_empty*((s-xmin)/L)
         E2=n_empty*((xmax-s)/L)
@@ -60,7 +56,7 @@ class GiniFunc(ScoreFunc):
         IGR=GiniFunc.gini_index(n_right,E2)
         IG_gain=IGL*((n_left+E1)/(E1+E2+n_left+n_right))+\
             IGR*((n_right+E2)/(E1+E2+n_left+n_right))
-        return  IG_gain, IGL,IGR
+        return  IG_gain
     @staticmethod
     def gini_index(n_sample,n_empty):
         """
@@ -111,11 +107,8 @@ class GiniFunc(ScoreFunc):
 
 
 if __name__=='__main__':
-    # test Gini values
-    data = np.array([[1],[2],[2],[3],[3],[5],[5]])
-    X=XData(data)
+    pass
 
-    print GiniFunc.score( X,i=0,s=1,n_left=1,n_right=6,c=1)
 
 
 

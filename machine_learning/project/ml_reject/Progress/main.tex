@@ -54,10 +54,11 @@ x_i,s=\arg \min_{x_i,s} IG_{\mbox{gain}}(x_i,s)
 \item Node Representation after spilt: the limit of each feature in the split data:  $[x_i^{\mbox{min}},x_i^{\mbox{max}}]$ for each i.  Any x that not include in these rules are consider empty. 
   \begin{figure}[h]
     \centering
-    \caption{Data Limitation as Node}
-    \includegraphics[scale=0.8]{image/tree.pdf} 
+    \caption{Tree Representation}
+    \includegraphics[scale=1]{image/tree.pdf} 
     \end{figure}
 \begin{itemize}
+    \item why still use tree not rules directly? The features are used  find the decision path for predicting faster. Suppose $x=(0.5,0.5)$, the decision procedure is that : node 0, feature[0],threshold left[0],children left[0]=1, node 1, feature[1],threshold left[1],children left[1]=2, node=2,feature[2]=X, node 2=Leaf. 
     \item  Furture work:  But $x_i^{\mbox{min}},x_i^{\mbox{max}}$ can be manually set to avoid the case that $X_i$ is amostly uniformaly distributed. Thus $\mu(x_{i,k+1}-x_{i,k}))$ is a useful information to determine the node limitations. For now, just let bagging solve these problems.
 \end{itemize}
  

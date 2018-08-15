@@ -8,51 +8,69 @@ import numpy as np
 
 
 
-class XData(object):
+def best_spliter(node,criterion,min_samples_leaf=1):
 	"""
-	Docstring for Training Data
+	Attributes
+	----------
+	node:  Node
+	    Tree Node
+	criterion: ScoreFunc
+	    Score Function
+	max_features: int
+	    The maximum number feature to be visited
+	min_samples_leaf : int
+	    The minimum number of samples required to be at a leaf node:
+	
+	Future Extension
+	----------------
+	1. randomly choose feature
+	
+	2. randomly choose spilit value
+	
 	"""
-	def __init__(self,X):
-		"""
-		Attributes
-		-------------------
-		X: numpy.darray 
-		data = np.array([
-		[-2.571244718,4.784783929,1],
-		[-3.571244718,5.784783929,0],)
-		    Input  data. 
-		"""
-		super(XData, self).__init__()
-		if not isinstance (X,np.ndarray):
-			raise ValueError("X should be in np.ndarray format, got %s" % type(X))
-		if len(X)<=0:
-			raise ValueError("Sample number should be than 0 , got %s" % len(X))
-		self.X=X
-		self.sortedX=np.sort(X.T)
-		self.__dict__['feature_limit']=[[x[0],x[-1]] for x in self.sortedX]
-		self.__dict__['n_feature']=len(X.T)
-		self.__dict__['n_sample']=len(X)
-	@property
-	def feature_limit(self): 
-		return  self.__dict__['feature_limit']
-	@property
-	def feature_type(self): 
-		'''identify all category feature
-		'''
-		return None
-	@property
-	def n_feature(self): 
-		return  self.__dict__['n_feature']
-	@property
-	def n_sample(self): 
-		return self.__dict__['n_sample']
-	def split_by_index(self,i,sl):
-		#split data by feature i with value sl
-		left_index=self.X.T[i]<=sl
-		DL=XData(self.X[left_index])
-		right_index=np.logical_not(left_index)
-		DR=XData(self.X[right_index])
-		return DL,DR
+	X=node.sortedX
+	s=None
+	feature_index=-1
+	best_score=float('inf')
+	for i in xrange(0,node.n_feature):
+		cdf,bins=hist(node.sortedX[i])
+		n_split=len(bins)
+		for j in xrange(0,n_split):
+			s_j=bins[j]
+			n_left=cdf[j]
+			n_right=node.n_sample-n_left
+			if n_left<min_samples_leaf or n_right<min_samples_leaf:
+				continue
+			score=criterion.score(node,i,s_j,n_left,n_right,node.n_empty)
+			if score<best_score:
+				feature_index=i
+				s=s_j
+				best_score=score
+	return feature_index, s
+
+
+
+def hist(x):
+    '''
+    Parameter:
+    ----------
+    x: np.darray
+        A list sorted of feature values  x=[1, 1,1,2,2,3,4,4]
+    Return:
+    ------
+    cdf: np.darray
+        A list of cumulative features     array([3, 5, 6, 8]) 
+        x has 3 items <=1, 5 items <=2, 6 items <=3, 8 items <=4
+    bins:  np.darray                        
+        A list of s                       array([1, 2, 3, 4])
+    '''
+    feature_set=list(set(x))
+    feature_set.sort()
+    # print 'feature set:', feature_set
+    bins=[x[0]-1]+list(feature_set)+[x[-1]+1]
+    hist,bins=np.histogram(x,bins)
+    cdf=np.cumsum(hist)
+    return cdf[1:], bins[1:-1]
 
 
 
@@ -60,7 +78,7 @@ class XData(object):
 # class Node(object):
 # 	"""
 # 	Class for Tree Node
-#     Attributes
+#   Attributes
 # 	-------------------
 # 	left_child :  node
 # 		The left child node of the current node
@@ -94,23 +112,5 @@ class XData(object):
 
 
 		
-if __name__=='__main__':
-	data = np.array([
-    [-2.571244718,4.784783929,0],
-    [-3.571244718,5.784783929,0],
-    [-3.771244718,1.784783929,1],
-    [-2.771244718,1.784783929,1],
-    [2.771244718,1.784783929,0],
-    [1.728571309,1.169761413,0],
-    [3.678319846,2.81281357,0],
-    [3.961043357,2.61995032,0],
-    [2.999208922,2.209014212,0],
-    [7.497545867,3.162953546,1],
-    [9.00220326,3.339047188,1],
-    [7.444542326,0.476683375,1],
-    [10.12493903,3.234550982,1],
-    [6.642287351,3.319983761,1]])
-	X=XData(data)
-	data = np.array([[1],[2],[2],[3],[3],[5],[5]])
-	X=XData(data)
-	print GiniFunc.score( X,i=0,sl=1,sr=2,n_left=1,n_right=6,c=1)
+
+	
