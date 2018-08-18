@@ -62,8 +62,9 @@ class GiniFunc(ScoreFunc):
         """
         return gini index 
         """
-        IG=1-((n_sample)/(n_sample+n_empty))**2-((n_empty)/(n_empty+n_sample))**2
+        IG=1-((float(n_sample))/(n_sample+n_empty))**2-(float((n_empty))/(n_empty+n_sample))**2
         return  IG
+
 
 
 # class InfoFunc(ScoreFunc):

@@ -5,21 +5,28 @@ Author: Xiaozhe Gu
 from abc import ABCMeta
 from abc import abstractmethod
 import numpy as np
+import pudb
+
+# FAIL_MIN_SAMPLE=-1
+# FAIL_SCORE_GAIN=-2
+# FAIL_IMPURITY_DECREASE=-3
 
 
+def best_spliter(node,criterion,root_gain,min_impurity_decrease,min_samples_leaf,threshold):
+	"""Find the best split index,value, and score_gain
 
-def best_spliter(node,criterion,min_samples_leaf=1):
-	"""
-	Attributes
+	Parameters 
 	----------
-	node:  Node
-	    Tree Node
+	node:  Leaf
+	    Tree Leaf Node
 	criterion: ScoreFunc
 	    Score Function
-	max_features: int
+	max_features: int  (future extension)
 	    The maximum number feature to be visited
 	min_samples_leaf : int
 	    The minimum number of samples required to be at a leaf node:
+	min_impurity_decrease : float 
+		The early stopping criterion in tree growth
 	
 	Future Extension
 	----------------
@@ -28,30 +35,52 @@ def best_spliter(node,criterion,min_samples_leaf=1):
 	2. randomly choose spilit value
 	
 	"""
+	ini_score=criterion.gini_index(node.n_sample,node.n_empty)
 	X=node.sortedX
 	s=None
 	feature_index=-1
 	best_score=float('inf')
+	worst_score=0
 	for i in xrange(0,node.n_feature):
 		cdf,bins=hist(node.sortedX[i])
 		n_split=len(bins)
-		for j in xrange(0,n_split):
-			s_j=bins[j]
+		if n_split<2:
+			"""At least one spilit point for the current feautre"""
+			break
+		for j in xrange(0,n_split-1):
+			s_j=(bins[j]+bins[j+1])*0.5
 			n_left=cdf[j]
 			n_right=node.n_sample-n_left
 			if n_left<min_samples_leaf or n_right<min_samples_leaf:
+				"""The n_sample after spliting must satisfy the requirement"""
 				continue
 			score=criterion.score(node,i,s_j,n_left,n_right,node.n_empty)
-			if score<best_score:
+			if  best_score-score>0:
 				feature_index=i
 				s=s_j
 				best_score=score
-	return feature_index, s
+		worst_score=max(worst_score,best_score)
+	# pudb.set_trace()
+	if feature_index==-1:
+		print 'FAIL TO FIND ANY SPLIT POINT: minsample at depth',\
+		 node.depth, 'with n_sample', node.n_sample
+	if  ini_score- best_score<min_impurity_decrease:
+		print 'FAIL  TO FIND ANY SPLIT POINT: min_impurity_decrease at depth',\
+		 node.depth, 'with n_sample', node.n_sample
+		
+		feature_index=-1
+
+	if root_gain!=None and (ini_score-best_score)/root_gain<threshold:
+		print 'FAIL  TO FIND ANY SPLIT POINT: not enough gain at depth',\
+		 node.depth, 'with n_sample', node.n_sample
+		
+		feature_index=-1
+	return feature_index, s,ini_score-best_score
 
 
 
 def hist(x):
-    '''
+    ''' For a list of values, return the cumulative numbers
     Parameter:
     ----------
     x: np.darray
@@ -97,8 +126,7 @@ def hist(x):
 # 	purity : float
 # 		The purity of empty points
 #     """
-# 	__slots__ = ('index','left_child', 'right_child', 'feature',
-# 	 'threshold', 'purity', 'n_node_samples','score')
+# 
 # 	def __init__(self,index):
 # 		self.index=index
 # 		self.left_child=None

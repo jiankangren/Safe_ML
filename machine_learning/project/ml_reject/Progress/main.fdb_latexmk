@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1534216952 "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.tex" "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.pdf" "main" 1534216953
-  "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.aux" 1534216953 417 726bffbf26ac821137422499a524482b ""
-  "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.tex" 1534216951 6361 64af000efb4ff8c7741142761a14e89e ""
+["pdflatex"] 1534491329 "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.tex" "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.pdf" "main" 1534491330
+  "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.aux" 1534491330 417 ff1a3d882d8baab4e7310318ee408feb ""
+  "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.tex" 1534491328 6966 d211f88e84c639f44f6f065468a2db13 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1480098688 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -178,11 +178,11 @@
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1532534807 4220280 cb58590cc890e82c70128c2837f96403 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "image/tree.pdf" 1534175918 13077 93ad58e61cb968a3b18b7b03ce90ba85 ""
-  "main.aux" 1534216953 417 726bffbf26ac821137422499a524482b ""
-  "main.tex" 1534216951 6361 64af000efb4ff8c7741142761a14e89e ""
+  "main.aux" 1534491330 417 ff1a3d882d8baab4e7310318ee408feb ""
+  "main.tex" 1534491328 6966 d211f88e84c639f44f6f065468a2db13 ""
   (generated)
-  "main.log"
-  "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.log"
   "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.pdf"
   "main.pdf"
+  "main.log"
   "main.aux"
+  "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.log"

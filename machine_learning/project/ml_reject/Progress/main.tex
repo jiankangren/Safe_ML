@@ -51,6 +51,7 @@ E=R\times c,\mbox{ where c is a hyper paramter}\\
 IG_{\mbox{gain}}(x_i,s)=\frac{R_1+E_1}{R+E}IG_L+\frac{R_2+E_2}{E+R}IG_R\\
 x_i,s=\arg \min_{x_i,s} IG_{\mbox{gain}}(x_i,s)
 \end{align*}
+\textbf{The problem }is that, the tree tends to make a single point node, since $s-x_i^{\mbox{min}}$ can be 0.
 \item Node Representation after spilt: the limit of each feature in the split data:  $[x_i^{\mbox{min}},x_i^{\mbox{max}}]$ for each i.  Any x that not include in these rules are consider empty. 
   \begin{figure}[h]
     \centering
@@ -64,6 +65,14 @@ x_i,s=\arg \min_{x_i,s} IG_{\mbox{gain}}(x_i,s)
  
 
 \item For category feature, for example, $X_i\in\{1,2,3,4,5\}$, we do not need to consider these features.
+\item \textbf{Stopping/Performance  Criterion}
+    \begin{itemize}
+        \item \texttt{max\_depth} 
+        \item \texttt{min\_samples\_leaf} 
+        \item \texttt{min\_impurity\_decrease}
+        \item \texttt{min\_impurity}: Wnen $P(empty)>>P(sample)$ ?  Not make sense because \texttt{n\_empty}  will update.
+        \item \texttt{max\_var} $\max_i(best_score)-\min_i(best_score)\leq \sigma$: means split in any feature does not make any sense, then we can stop.
+    \end{itemize}
 
 
 \end{itemize}
@@ -85,6 +94,7 @@ x_i,s=\arg \min_{x_i,s} IG_{\mbox{gain}}(x_i,s)
 	\item  Also consider the feature importance. For example, feature 1 is important when $x_1\in[0,10]$, then, as we consider the split feature, this feature could has higher priority
 	\item Consider the problem to classify 100 points in 10 dimension.
     \item consider the variance of data in the split?  If it has small variance, then reduce the empty samples?
+    \item What is the data set has a good shape (uniform distribution). In this case, the split should stop by observing that the Gini Index Increase is very small.
 \end{itemize}
 
 % \renewcommand{\refname}{~}
