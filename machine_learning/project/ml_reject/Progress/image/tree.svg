@@ -3,11 +3,8 @@
     xmlns:latexdraw="http://latexdraw.sourceforge.net/namespaces/latexdraw"
     version="1.1" baseProfile="full">
     <g>
-        <g latexdraw:type="text" id="id1326706211" fill="black" latexdraw:position="bl">
-            <text x="5.0" y="35.0">\{(0,0),(1,1),(3,3),(4,4),</text>
-        </g>
         <g latexdraw:type="text" id="id696188589" fill="black" latexdraw:position="bl">
-            <text x="335.0" y="75.0">$x_1\leq 4$</text>
+            <text x="335.0" y="75.0">$x_1\leq 5$</text>
         </g>
         <g latexdraw:type="rectangle" id="id120162511">
             <rect x="321.0" y="41.0" width="158.0" height="58.0"
@@ -33,10 +30,10 @@
                 stroke="black" fill="none"/>
         </g>
         <g latexdraw:type="text" id="id1941788335" fill="black" latexdraw:position="bl">
-            <text x="195.0" y="175.0">$x_1\leq 1$</text>
+            <text x="195.0" y="175.0">$x_1\leq 2$</text>
         </g>
         <g latexdraw:type="text" id="id525354175" fill="black" latexdraw:position="bl">
-            <text x="435.0" y="175.0">$x_1\leq 9$</text>
+            <text x="435.0" y="175.0">$x_1\leq 8$</text>
         </g>
         <g latexdraw:type="rectangle" id="id1601662617">
             <rect x="241.0" y="221.0" width="138.0" height="58.0"
@@ -54,7 +51,7 @@
                 stroke="black" fill="none"/>
         </g>
         <g latexdraw:type="rectangle" id="id1463970862">
-            <rect x="421.0" y="221.0" width="118.0" height="58.0"
+            <rect x="421.0" y="221.0" width="138.0" height="58.0"
                 latexdraw:borderPos="outer" stroke-width="2.0"
                 stroke="black" fill="none"/>
         </g>
@@ -76,50 +73,23 @@
                 points="626.6666666666665,200.0 626.6666666666665,220.0 "
                 stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
         </g>
-        <g latexdraw:type="text" id="id644801841" fill="black" latexdraw:position="bl">
-            <text x="91.66666666666669" y="255.0">\{(0,0),(1,1)\}</text>
-        </g>
         <g latexdraw:type="text" id="id136646978" fill="black" latexdraw:position="bl">
-            <text x="315.0" y="35.0">$x_1\in[0,12]$</text>
+            <text x="295.0" y="35.0">$x_1\in[0,10]$</text>
         </g>
         <g latexdraw:type="text" id="id595672171" fill="black" latexdraw:position="bl">
-            <text x="415.0" y="35.0">$x_2\in[0,12]$</text>
+            <text x="395.0" y="35.0">$x_2\in[0,10]$</text>
         </g>
         <g latexdraw:type="text" id="id123783211" fill="black" latexdraw:position="bl">
-            <text x="415.0" y="75.0">$x_1\geq 8$</text>
+            <text x="415.0" y="75.0">$x_1&gt; 5$</text>
         </g>
         <g latexdraw:type="text" id="id1888144650" fill="black" latexdraw:position="bl">
-            <text x="315.0" y="175.0">$x_1\geq 3$</text>
+            <text x="315.0" y="175.0">$x_1&gt;2$</text>
         </g>
         <g latexdraw:type="text" id="id251145592" fill="black" latexdraw:position="bl">
-            <text x="515.0" y="175.0">$x_1\geq 11$</text>
+            <text x="555.0" y="175.0">$x_1&gt;8$</text>
         </g>
         <g latexdraw:type="text" id="id1966084057" fill="black" latexdraw:position="bl">
-            <text x="5.0" y="75.0">(8,8),(9,9),(11,11),[12,12)\}</text>
-        </g>
-        <g latexdraw:type="text" id="id1047198685" fill="black" latexdraw:position="bl">
-            <text x="111.66666666666669" y="275.0">$x_2\in[0,1]$</text>
-        </g>
-        <g latexdraw:type="text" id="id704310401" fill="black" latexdraw:position="bl">
-            <text x="271.6666666666667" y="255.0">\{(3,3),(4,4)\}</text>
-        </g>
-        <g latexdraw:type="text" id="id1796050148" fill="black" latexdraw:position="bl">
-            <text x="271.6666666666667" y="275.0">$x_2\in[3,4]$</text>
-        </g>
-        <g latexdraw:type="text" id="id882597508" fill="black" latexdraw:position="bl">
-            <text x="431.6666666666667" y="255.0">\{(8,8),(9,9)\}</text>
-        </g>
-        <g latexdraw:type="text" id="id686353289" fill="black" latexdraw:position="bl">
-            <text x="451.6666666666667" y="275.0">$x_2\in[8,9]$</text>
-        </g>
-        <g latexdraw:type="text" id="id689443373" fill="black" latexdraw:position="bl">
-            <text x="591.6666666666667" y="255.0">\{(11,11),(12,12)\}</text>
-        </g>
-        <g latexdraw:type="text" id="id163823068" fill="black" latexdraw:position="bl">
-            <text x="611.6666666666667" y="275.0">$x_2\in[11,12]$</text>
-        </g>
-        <g latexdraw:type="text" id="id1611216164" fill="black" latexdraw:position="bl">
-            <text x="240.0" y="300.0">All Leafs implicitly inherit bounds of the data</text>
+            <text x="25.0" y="75.0">(6,6),(7,7),(9,9),(10,10)\}</text>
         </g>
         <g latexdraw:type="text" id="id1531793912" fill="black" latexdraw:position="bl">
             <text x="80.0" y="340.0">children left: [1,2,X,X,5,X,X]</text>
@@ -146,16 +116,34 @@
             <text x="500.0" y="220.0">ID:5</text>
         </g>
         <g latexdraw:type="text" id="id1316771446" fill="black" latexdraw:position="bl">
-            <text x="360.0" y="340.0">children right: [1,2,X,X,5,X,X]</text>
+            <text x="360.0" y="340.0">children right: [4,3,X,X,6,X,X]</text>
         </g>
         <g latexdraw:type="text" id="id1664315384" fill="black" latexdraw:position="bl">
-            <text x="80.0" y="380.0">feature [1,2,X,X,5,X,X]</text>
+            <text x="80.0" y="380.0">feature [1,1,X,X,1,X,X]</text>
         </g>
         <g latexdraw:type="text" id="id1399352310" fill="black" latexdraw:position="bl">
-            <text x="80.0" y="420.0">threshold left: [4,1,X,X,9,X,X]</text>
+            <text x="80.0" y="420.0">threshold left: [5,2,X,X,8,X,X]</text>
         </g>
         <g latexdraw:type="text" id="id1866545170" fill="black" latexdraw:position="bl">
-            <text x="360.0" y="420.0">threshold right: [8,3,X,X,11,X,X]</text>
+            <text x="360.0" y="420.0">threshold right: [5,2,X,X,8,X,X]</text>
+        </g>
+        <g latexdraw:type="text" id="id1720831961" fill="black" latexdraw:position="bl">
+            <text x="265.0" y="255.0">\{(3,3),(4,4)\}</text>
+        </g>
+        <g latexdraw:type="text" id="id399740875" fill="black" latexdraw:position="bl">
+            <text x="105.0" y="255.0">\{(0,0),(1,1)\}</text>
+        </g>
+        <g latexdraw:type="text" id="id1213793333" fill="black" latexdraw:position="bl">
+            <text x="105.0" y="255.0">\{(0,0),(1,1)\}</text>
+        </g>
+        <g latexdraw:type="text" id="id1667266609" fill="black" latexdraw:position="bl">
+            <text x="445.0" y="255.0">\{(6,6),(7,7)\}</text>
+        </g>
+        <g latexdraw:type="text" id="id3680817" fill="black" latexdraw:position="bl">
+            <text x="605.0" y="255.0">\{(9,9),(10,10)\}</text>
+        </g>
+        <g latexdraw:type="text" id="id1589718613" fill="black" latexdraw:position="bl">
+            <text x="25.0" y="35.0">X=\{(0,0),(1,1),(3,3),(4,4),</text>
         </g>
     </g>
     <defs/>

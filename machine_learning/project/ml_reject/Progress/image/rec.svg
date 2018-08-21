@@ -1,0 +1,173 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:latexdraw="http://latexdraw.sourceforge.net/namespaces/latexdraw"
+    version="1.1" baseProfile="full">
+    <g>
+        <g latexdraw:type="rectangle" id="id1191394281">
+            <rect x="510.05" y="200.05" width="99.9" height="449.9"
+                latexdraw:borderPos="outer" stroke-width="0.1"
+                stroke="white" fill="#00a0ff"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id1322911223">
+            <rect x="360.05" y="350.05" width="149.9" height="299.9"
+                latexdraw:borderPos="outer" stroke-width="0.1"
+                stroke="white" fill="cyan"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id219961856">
+            <rect x="360.05" y="150.05" width="149.9" height="149.9"
+                latexdraw:borderPos="outer" stroke-width="0.1"
+                stroke="white" fill="cyan"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id1080361866">
+            <rect x="210.05" y="500.05" width="149.9" height="149.9"
+                latexdraw:borderPos="outer" stroke-width="0.1"
+                stroke="white" fill="cyan"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id1917133838">
+            <rect x="210.05" y="150.05" width="149.9" height="299.9"
+                latexdraw:borderPos="outer" stroke-width="0.1"
+                stroke="white" fill="cyan"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id1885226465">
+            <rect x="110.05" y="150.05" width="99.9" height="449.9"
+                latexdraw:borderPos="outer" stroke-width="0.1"
+                stroke="white" fill="#00a0ff"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id365480957">
+            <rect x="510.05" y="150.05" width="99.9" height="49.9"
+                latexdraw:borderPos="outer" stroke-width="0.1"
+                stroke="white" fill="blue"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id1060443407">
+            <rect x="360.05" y="300.05" width="149.9" height="49.9"
+                latexdraw:borderPos="outer" stroke-width="0.1"
+                stroke="white" fill="#0064ff"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id808582160">
+            <rect x="210.05" y="450.05" width="149.9" height="49.9"
+                latexdraw:borderPos="outer" stroke-width="0.1"
+                stroke="white" fill="#0064ff"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id1750473251">
+            <rect x="110.05" y="600.05" width="99.9" height="49.9"
+                latexdraw:borderPos="outer" stroke-width="0.1"
+                stroke="white" fill="blue"/>
+        </g>
+        <g stroke-width="2.0" stroke="black" latexdraw:style="Axe"
+            latexdraw:gridStart="0.0 0.0" latexdraw:gridEnd="2.0 2.0"
+            latexdraw:origin="0.0 0.0" latexdraw:increment="1.0 1.0"
+            latexdraw:distLabels="1.0 1.0"
+            latexdraw:ticksSize="7.055555555555555"
+            latexdraw:showOrigin="true" latexdraw:showTicks="all"
+            latexdraw:showLabels="all" latexdraw:ticksStyle="Full"
+            latexdraw:type="axe" id="id1492339215">
+            <g latexdraw:type="joinedLines" id="id2023627170">
+                <polyline points="120.0,2590.0 220.0,2590.0 "
+                    stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+            </g>
+            <g latexdraw:type="joinedLines" id="id2075885883">
+                <polyline points="120.0,2590.0 120.0,2490.0 "
+                    stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+            </g>
+        </g>
+        <g stroke-width="2.0" stroke="black" latexdraw:style="Frame"
+            latexdraw:gridStart="0.0 0.0" latexdraw:gridEnd="10.0 10.0"
+            latexdraw:origin="0.0 0.0" latexdraw:increment="1.0 1.0"
+            latexdraw:distLabels="1.0 1.0"
+            latexdraw:ticksSize="7.055555555555555"
+            latexdraw:showOrigin="true" latexdraw:showTicks="all"
+            latexdraw:showLabels="all" latexdraw:ticksStyle="Bottom"
+            latexdraw:type="axe" id="id465403738">
+            <g latexdraw:type="rectangle" id="id520332300">
+                <rect x="110.0" y="150.0" width="500.0" height="500.0"
+                    latexdraw:borderPos="middle" stroke-width="2.0"
+                    stroke="black" fill="none"/>
+            </g>
+        </g>
+        <g latexdraw:type="rectangle" id="id319078649">
+            <rect x="101.0" y="641.0" width="18.0" height="18.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="black"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id818999062">
+            <rect x="151.0" y="591.0" width="18.0" height="18.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="black"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id1181883280">
+            <rect x="251.0" y="491.0" width="18.0" height="18.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="black"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id160567772">
+            <rect x="301.0" y="441.0" width="18.0" height="18.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="black"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id2013231929">
+            <rect x="401.0" y="341.0" width="18.0" height="18.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="black"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id1514152197">
+            <rect x="451.0" y="291.0" width="18.0" height="18.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="black"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id1502140826">
+            <rect x="551.0" y="191.0" width="18.0" height="18.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="black"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id1454113833">
+            <rect x="601.0" y="141.0" width="18.0" height="18.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="black"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id326204739">
+            <polyline points="360.0,650.0 360.0,150.0 "
+                stroke-width="2.0" stroke="black"
+                stroke-dasharray="8.819444444444445, 5.291666666666667" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id837603991">
+            <polyline points="510.0,650.0 510.0,150.0 "
+                stroke-width="2.0" stroke="black"
+                stroke-dasharray="8.819444444444445, 5.291666666666667" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id512762852">
+            <polyline points="210.0,650.0 210.0,150.0 "
+                stroke-width="2.0" stroke="black"
+                stroke-dasharray="8.819444444444445, 5.291666666666667" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id1935186716">
+            <rect x="101.0" y="61.0" width="18.0" height="18.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="black"/>
+        </g>
+        <g latexdraw:type="text" id="id1130007872" fill="black" latexdraw:position="bl">
+            <text x="140.0" y="80.0">Training Samples</text>
+        </g>
+    </g>
+    <defs/>
+    <metadata>
+        <latexdraw:metadata>
+            <latexdraw:latexIncludes/>
+            <latexdraw:displayXScale>true</latexdraw:displayXScale>
+            <latexdraw:displayYScale>true</latexdraw:displayYScale>
+            <latexdraw:unit>CM</latexdraw:unit>
+            <latexdraw:zoom>1.0</latexdraw:zoom>
+            <latexdraw:magneticGridStyle>CUSTOMISED</latexdraw:magneticGridStyle>
+            <latexdraw:gridGap>10</latexdraw:gridGap>
+            <latexdraw:magneticGrid>true</latexdraw:magneticGrid>
+            <latexdraw:version>3.3.2</latexdraw:version>
+            <latexdraw:size>
+                <latexdraw:width>1098</latexdraw:width>
+                <latexdraw:height>670</latexdraw:height>
+            </latexdraw:size>
+            <latexdraw:position>
+                <latexdraw:x>295.0</latexdraw:x>
+                <latexdraw:y>77.0</latexdraw:y>
+            </latexdraw:position>
+        </latexdraw:metadata>
+    </metadata>
+</svg>

@@ -12,7 +12,7 @@ import pudb
 # FAIL_IMPURITY_DECREASE=-3
 
 
-def best_spliter(node,criterion,root_gain,min_impurity_decrease,min_samples_leaf,threshold):
+def best_spliter(node,criterion,root_gain,min_samples_leaf,threshold):
 	"""Find the best split index,value, and score_gain
 
 	Parameters 
@@ -25,8 +25,6 @@ def best_spliter(node,criterion,root_gain,min_impurity_decrease,min_samples_leaf
 	    The maximum number feature to be visited
 	min_samples_leaf : int
 	    The minimum number of samples required to be at a leaf node:
-	min_impurity_decrease : float 
-		The early stopping criterion in tree growth
 	
 	Future Extension
 	----------------
@@ -48,6 +46,7 @@ def best_spliter(node,criterion,root_gain,min_impurity_decrease,min_samples_leaf
 			"""At least one spilit point for the current feautre"""
 			break
 		for j in xrange(0,n_split-1):
+			s_j=bins[j]
 			s_j=(bins[j]+bins[j+1])*0.5
 			n_left=cdf[j]
 			n_right=node.n_sample-n_left
@@ -64,11 +63,6 @@ def best_spliter(node,criterion,root_gain,min_impurity_decrease,min_samples_leaf
 	if feature_index==-1:
 		print 'FAIL TO FIND ANY SPLIT POINT: minsample at depth',\
 		 node.depth, 'with n_sample', node.n_sample
-	if  ini_score- best_score<min_impurity_decrease:
-		print 'FAIL  TO FIND ANY SPLIT POINT: min_impurity_decrease at depth',\
-		 node.depth, 'with n_sample', node.n_sample
-		
-		feature_index=-1
 
 	if root_gain!=None and (ini_score-best_score)/root_gain<threshold:
 		print 'FAIL  TO FIND ANY SPLIT POINT: not enough gain at depth',\

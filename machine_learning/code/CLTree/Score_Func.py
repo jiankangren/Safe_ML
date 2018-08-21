@@ -40,8 +40,7 @@ class GiniFunc(ScoreFunc):
     def __init__(self):
         super(GiniFunc, self).__init__()
     
-    @staticmethod
-    def score(node,i,s,n_left,n_right,n_empty):
+    def score(self,node,i,s,n_left,n_right,n_empty):
         """
         return  Gini Score for the split : IG_gain
         """
@@ -51,14 +50,13 @@ class GiniFunc(ScoreFunc):
         E1=n_empty*((s-xmin)/L)
         E2=n_empty*((xmax-s)/L)
         # IGL=1-((n_left)/(n_left+E1))**2-((E1)/(n_left+E1))**2
-        IGL=GiniFunc.gini_index(n_left,E1)
+        IGL=self.gini_index(n_left,E1)
         # IGR=1- ((n_right)/(n_right+E2))**2-((E2)/(n_right+E2))**2
-        IGR=GiniFunc.gini_index(n_right,E2)
+        IGR=self.gini_index(n_right,E2)
         IG_gain=IGL*((n_left+E1)/(E1+E2+n_left+n_right))+\
             IGR*((n_right+E2)/(E1+E2+n_left+n_right))
         return  IG_gain
-    @staticmethod
-    def gini_index(n_sample,n_empty):
+    def gini_index(self,n_sample,n_empty):
         """
         return gini index 
         """
