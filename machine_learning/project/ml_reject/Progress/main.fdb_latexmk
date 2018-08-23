@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1534844059 "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.tex" "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.pdf" "main" 1534844059
-  "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.aux" 1534844059 1004 db2f50791dde2de95790af61150615dd ""
-  "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.tex" 1534844058 10704 80f93a6ae4d5563410087e079d971ee6 ""
+["pdflatex"] 1535039955 "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.tex" "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.pdf" "main" 1535039956
+  "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.aux" 1535039955 1348 6d03bee2482d6729bf4710de65811a99 ""
+  "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.tex" 1535039954 11081 db5f1a698f92a3b2dfc99a725693d26e ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1480098688 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -178,13 +178,15 @@
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1532534807 4220280 cb58590cc890e82c70128c2837f96403 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "image/rec.pdf" 1534839183 7383 1d714ce221434c17c88e969f99289345 ""
+  "image/robot2.png" 1535039199 60849 6848c370d19ddd8b2f51b466d4d8cb4d ""
+  "image/robot2s.png" 1535039885 50689 564ec8d16c6234e973b56b0eb264434d ""
   "image/split_example.pdf" 1534827698 13630 e13476c2047d34440bf4df800c000405 ""
   "image/tree.pdf" 1534776071 12375 0525be88702e1bd64307b263e82235ed ""
-  "main.aux" 1534844059 1004 db2f50791dde2de95790af61150615dd ""
-  "main.tex" 1534844058 10704 80f93a6ae4d5563410087e079d971ee6 ""
+  "main.aux" 1535039955 1348 6d03bee2482d6729bf4710de65811a99 ""
+  "main.tex" 1535039954 11081 db5f1a698f92a3b2dfc99a725693d26e ""
   (generated)
   "main.pdf"
-  "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.log"
-  "main.aux"
   "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.pdf"
   "main.log"
+  "/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.log"
+  "main.aux"

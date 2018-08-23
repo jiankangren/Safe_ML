@@ -61,13 +61,13 @@ def best_spliter(node,criterion,root_gain,min_samples_leaf,threshold):
 		worst_score=max(worst_score,best_score)
 	# pudb.set_trace()
 	if feature_index==-1:
-		print 'FAIL TO FIND ANY SPLIT POINT: minsample at depth',\
-		 node.depth, 'with n_sample', node.n_sample
+		# print 'FAIL TO FIND ANY SPLIT POINT: minsample at depth',\
+		 # node.depth, 'with n_sample', node.n_sample
+         pass
 
 	if root_gain!=None and (ini_score-best_score)/root_gain<threshold:
-		print 'FAIL  TO FIND ANY SPLIT POINT: not enough gain at depth',\
-		 node.depth, 'with n_sample', node.n_sample
-		
+		# print 'FAIL  TO FIND ANY SPLIT POINT: not enough gain at depth',\
+		 # node.depth, 'with n_sample', node.n_sample
 		feature_index=-1
 	return feature_index, s,ini_score-best_score
 

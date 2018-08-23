@@ -1,6 +1,7 @@
 import abc
 from numpy import log2
 import numpy as np
+# from ctypes import *
 
 
 
@@ -39,6 +40,7 @@ class ScoreFunc(object):
 class GiniFunc(ScoreFunc):
     def __init__(self):
         super(GiniFunc, self).__init__()
+        # self.GINI = cdll.LoadLibrary('./GINI.so')
     
     def score(self,node,i,s,n_left,n_right,n_empty):
         """
@@ -60,8 +62,16 @@ class GiniFunc(ScoreFunc):
         """
         return gini index 
         """
+        """ origin python version
+        """
         IG=1-((float(n_sample))/(n_sample+n_empty))**2-(float((n_empty))/(n_empty+n_sample))**2
-        return  IG
+        return IG
+
+        # gini_index=self.GINI.gini_index
+        # gini_index.argtype=c_float
+        # gini_index.restype=c_float
+        # return gini_index(c_float(n_sample),c_float(n_empty))
+
 
 
 
@@ -106,8 +116,10 @@ class GiniFunc(ScoreFunc):
 
 
 if __name__=='__main__':
-    pass
-
+    x=GiniFunc()
+  
+    y=x.gini_index(1.0,0.1)
+    print y
 
 
 

@@ -197,12 +197,12 @@ class CLTree(object):
     def ICDF_threshold(self,p):
        
         if type(p) is float:
-            S=self.density_X[self.density_X>0]
+            S=self.density_X[self.leaves.keys()]
             S.sort()
             i=int(p*len(S))
             return S[i]
         elif type(p) is list: 
-            S=self.density_X[self.density_X>0]
+            S=self.density_X[self.leaves.keys()]
             S.sort()
             for i in xrange(0,len(p)):
                 k=int(p[i]*len(S))
@@ -286,7 +286,7 @@ class CLTree(object):
                     Y[i]=self.density[ID]
                 else:
                     Y[i]=0
-        # Y=(Y>threshold)+np.zeros(len(Y))
+        Y=(Y>threshold)+np.zeros(len(Y))
         return np.array(Y)
 
 
@@ -443,8 +443,8 @@ if __name__=='__main__':
     [6.642287351,3.319983761]])
     y=np.ones(len(X))
     
-    # X= np.array([[0,0],[1,1,],[3,3],[4,4],[6,6],[7,7],[9,9],[10,10]])
-    # y=np.ones(len(X))
+    X= np.array([[0,0],[1,1,],[3,3],[4,4],[6,6],[7,7],[9,9],[10,10]])
+    y=np.ones(len(X))
 
     h=0.05
     x1_min, x1_max = X.T[0].min() - .01, X.T[0].max() + .01
@@ -452,7 +452,7 @@ if __name__=='__main__':
     xx, yy = np.meshgrid(np.arange(x1_min-1, x1_max+1, h),np.arange(x2_min-1, x2_max+1, h))
     tree=CLTree(criterion='gini',min_samples_leaf=2, max_depth=50,gain_ratio_threshold=0.1)
     tree.fit(X)
-    Z=tree.predict(np.c_[xx.ravel(), yy.ravel()],threshold=0.45)
+    Z=tree.predict(np.c_[xx.ravel(), yy.ravel()],threshold=0.6)
     Z=Z.reshape(xx.shape)
     # print Z
     ax = plt.subplot(1, 1, 1)

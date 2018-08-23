@@ -248,6 +248,13 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/times/ptmrc7t.tfm
+INPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/image/robot2.png
+INPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/image/robot2.png
+OUTPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.pdf
+INPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/image/robot2.png
+INPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/image/robot2s.png
+INPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/image/robot2s.png
+INPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/image/robot2s.png
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
@@ -267,10 +274,6 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-INPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/image/split_example.pdf
-INPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/image/split_example.pdf
-OUTPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/main.pdf
-INPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/image/split_example.pdf
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map
@@ -282,8 +285,13 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/ptmrc7t.vf
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
+INPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/image/split_example.pdf
+INPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/image/split_example.pdf
+INPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/image/split_example.pdf
 INPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/image/tree.pdf
 INPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/image/tree.pdf
 INPUT /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progress/image/tree.pdf
@@ -295,8 +303,6 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/courier/pcrr7t.vf
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf

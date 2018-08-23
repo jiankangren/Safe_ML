@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.7.26)  21 AUG 2018 17:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.7.26)  23 AUG 2018 23:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -731,59 +731,75 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )) ABD: EveryShipout initializing macros
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 42.
-LaTeX Font Info:    Try loading font information for U+msa on input line 42.
+<image/robot2.png, id=4, 1076.02pt x 1076.02pt>
+File: image/robot2.png Graphic file (type png)
+<use image/robot2.png>
+Package pdftex.def Info: image/robot2.png  used on input line 41.
+(pdftex.def)             Requested size: 269.00435pt x 269.00435pt.
+<image/robot2s.png, id=6, 1002.74625pt x 1076.02pt>
+File: image/robot2s.png Graphic file (type png)
+<use image/robot2s.png>
+Package pdftex.def Info: image/robot2s.png  used on input line 47.
+(pdftex.def)             Requested size: 250.68594pt x 269.00435pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 56.
+LaTeX Font Info:    Try loading font information for U+msa on input line 56.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 42.
+LaTeX Font Info:    Try loading font information for U+msb on input line 56.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-<image/split_example.pdf, id=4, 257.61243pt x 303.38344pt>
+) [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Us
+ers/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Prog
+ress/image/robot2.png>]
+<image/split_example.pdf, id=21, 257.61243pt x 303.38344pt>
 File: image/split_example.pdf Graphic file (type pdf)
 <use image/split_example.pdf>
-Package pdftex.def Info: image/split_example.pdf  used on input line 55.
+Package pdftex.def Info: image/split_example.pdf  used on input line 69.
 (pdftex.def)             Requested size: 257.61179pt x 303.38269pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<image/tree.pdf, id=19, 401.18884pt x 234.73697pt>
+[2 </Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reje
+ct/Progress/image/robot2s.png>]
+<image/tree.pdf, id=27, 401.18884pt x 234.73697pt>
 File: image/tree.pdf Graphic file (type pdf)
 <use image/tree.pdf>
-Package pdftex.def Info: image/tree.pdf  used on input line 77.
+Package pdftex.def Info: image/tree.pdf  used on input line 91.
 (pdftex.def)             Requested size: 401.18785pt x 234.73639pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<image/rec.pdf, id=20, 309.30556pt x 1458.61943pt>
+<image/rec.pdf, id=28, 309.30556pt x 1458.61943pt>
 File: image/rec.pdf Graphic file (type pdf)
 <use image/rec.pdf>
-Package pdftex.def Info: image/rec.pdf  used on input line 84.
+Package pdftex.def Info: image/rec.pdf  used on input line 98.
 (pdftex.def)             Requested size: 216.5124pt x 1021.02666pt.
 
-LaTeX Warning: Float too large for page by 351.06831pt on input line 87.
+LaTeX Warning: Float too large for page by 351.06831pt on input line 101.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 105.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 119.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [2 </Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_re
-ject/Progress/image/split_example.pdf>] [3 </Users/sunshine8641/GitHub/Safe_ML_
-Project/machine_learning/project/ml_reject/Progress/image/tree.pdf>] [4 </Users
+) [3 </Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_re
+ject/Progress/image/split_example.pdf>] [4 </Users/sunshine8641/GitHub/Safe_ML_
+Project/machine_learning/project/ml_reject/Progress/image/tree.pdf>] [5 </Users
 /sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/Progres
 s/image/rec.pdf>]
 (/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/project/ml_reject/
 Progress/main.aux) ) 
 Here is how much of TeX's memory you used:
- 15586 strings out of 492649
- 297070 string characters out of 6129622
- 371301 words of memory out of 5000000
- 19128 multiletter control sequences out of 15000+600000
+ 15597 strings out of 492649
+ 297265 string characters out of 6129622
+ 369301 words of memory out of 5000000
+ 19136 multiletter control sequences out of 15000+600000
  37236 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,11n,54p,742b,246s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -806,10 +822,10 @@ live/2018/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/20
 ist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/
 type1/urw/times/utmri8a.pfb>
 Output written on /Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/p
-roject/ml_reject/Progress/main.pdf (4 pages, 163354 bytes).
+roject/ml_reject/Progress/main.pdf (5 pages, 246010 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
+ 130 PDF objects out of 1000 (max. 8388607)
+ 98 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
