@@ -1,0 +1,577 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.7.26)  25 AUG 2018 22:58
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/code/CLTree/main.
+py
+
+(/Users/sunshine8641/GitHub/Safe_ML_Project/machine_learning/code/CLTree/main.p
+y
+LaTeX2e <2018-04-01> patch level 2
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 f
+     rom RandomForest import *
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no f in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no R in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no F in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no * in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no l in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.4 from sklearn.model_
+                       selection import train_test_split
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 4.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.6 
+    
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 1--6
+[]
+ []
+
+
+Overfull \hbox (359.6078pt too wide) in paragraph at lines 1--6
+[]\OML/cmm/m/it/10 electionimporttrain[]est[]plitfromsklearn:neural[]etworkimpo
+rtMLPClassifier$ 
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8 m
+     ydata=pd.read_csv('./data/2.csv').values
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no m in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no d in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.8 mydata=pd.read_
+                   csv('./data/2.csv').values
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! You can't use `macro parameter character #' in math mode.
+l.11 #
+       label=list(set(y))
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in math mode.
+l.12 #
+       y=np.array(y)
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in math mode.
+l.13 #
+       index=[0]*len(label)
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in math mode.
+l.14 #
+       for i in range(0,len(label)):
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in math mode.
+l.15 #
+           index[i]=(y==label[i])
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in math mode.
+l.16 #
+           y[index[i]]=int(i)
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.17 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (152.66415pt too wide) in paragraph at lines 8--17
+[]$[]\OML/cmm/m/it/10 sv\OT1/cmr/m/n/10 ([]\OML/cmm/m/it/10 :=data=\OT1/cmr/m/n
+/10 2\OML/cmm/m/it/10 :csv[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :valuesX \OT1/cmr
+/m/n/10 =
+ []
+
+
+Overfull \hbox (82.09746pt too wide) in paragraph at lines 8--17
+\OML/cmm/m/it/10 np:array\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 mydata\OT1/cmr/m/n/1
+0 [:
+ []
+
+
+Overfull \hbox (14.99992pt too wide) in paragraph at lines 8--17
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0 :
+ []
+
+
+Overfull \hbox (27.48381pt too wide) in paragraph at lines 8--17
+\OT1/cmr/m/n/10 2])\OML/cmm/m/it/10 y \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (38.98506pt too wide) in paragraph at lines 8--17
+\OML/cmm/m/it/10 mydata\OT1/cmr/m/n/10 [:
+ []
+
+
+Overfull \hbox (43.37268pt too wide) in paragraph at lines 8--17
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2]\OML/cmm/m/it/10 label \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (64.5135pt too wide) in paragraph at lines 8--17
+\OML/cmm/m/it/10 list\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 set\OT1/cmr/m/n/10 (\OML
+/cmm/m/it/10 y\OT1/cmr/m/n/10 ))\OML/cmm/m/it/10 y \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (87.84229pt too wide) in paragraph at lines 8--17
+\OML/cmm/m/it/10 np:array\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 )\O
+ML/cmm/m/it/10 index \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (15.5556pt too wide) in paragraph at lines 8--17
+\OT1/cmr/m/n/10 [0] \OMS/cmsy/m/n/10 ^^C
+ []
+
+
+Overfull \hbox (161.56541pt too wide) in paragraph at lines 8--17
+\OML/cmm/m/it/10 len\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 label\OT1/cmr/m/n/10 )\OM
+L/cmm/m/it/10 foriinrange\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; len\OT1/cmr/m/n/1
+0 (\OML/cmm/m/it/10 label\OT1/cmr/m/n/10 )) :
+ []
+
+
+Overfull \hbox (44.5801pt too wide) in paragraph at lines 8--17
+\OML/cmm/m/it/10 index\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 i\OT1/cmr/m/n/10 ] =
+ []
+
+
+Overfull \hbox (27.48381pt too wide) in paragraph at lines 8--17
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y \OT1/cmr/m/n/10 ==
+ []
+
+
+Overfull \hbox (88.88182pt too wide) in paragraph at lines 8--17
+\OML/cmm/m/it/10 label\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 i\OT1/cmr/m/n/10 ])\OML
+/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 index\OT1/cmr/m/n/10 [\OML/cmm/
+m/it/10 i\OT1/cmr/m/n/10 ]] =
+ []
+
+
+Overfull \hbox (24.28152pt too wide) in paragraph at lines 8--17
+\OML/cmm/m/it/10 int\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i\OT1/cmr/m/n/10 )$ 
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.19 X
+      _train, X_test, y_train, y_test = \
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no X in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.19 X_
+       train, X_test, y_train, y_test = \
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.25 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (141.01772pt too wide) in paragraph at lines 19--25
+[]$[]\OML/cmm/m/it/10 rain; X[]est; y[]rain; y[]est \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (130.29268pt too wide) in paragraph at lines 19--25
+\OML/cmm/m/it/10 train[]est[]plit\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; y; test[]
+ize \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (84.12628pt too wide) in paragraph at lines 19--25
+\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 25\OML/cmm/m/it/10 ; random[]tate \OT1/cmr/m/
+n/10 =
+ []
+
+
+Overfull \hbox (41.4364pt too wide) in paragraph at lines 19--25
+\OT1/cmr/m/n/10 42)\OML/cmm/m/it/10 mlp \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (163.07614pt too wide) in paragraph at lines 19--25
+\OML/cmm/m/it/10 MLPClassifier\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 hidden[]ayer[]i
+zes \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (97.83397pt too wide) in paragraph at lines 19--25
+\OT1/cmr/m/n/10 (100\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 100\OML/cmm/m/it/10 ; \O
+T1/cmr/m/n/10 )\OML/cmm/m/it/10 ; max[]ter \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (49.54514pt too wide) in paragraph at lines 19--25
+\OT1/cmr/m/n/10 50\OML/cmm/m/it/10 ; alpha \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (17.43408pt too wide) in paragraph at lines 19--25
+\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 e \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (50.17244pt too wide) in paragraph at lines 19--25
+\OT1/cmr/m/n/10 4\OML/cmm/m/it/10 ; solver \OT1/cmr/m/n/10 =[]
+ []
+
+
+Overfull \hbox (75.49655pt too wide) in paragraph at lines 19--25
+\OML/cmm/m/it/10 adam[]; verbose \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (36.63887pt too wide) in paragraph at lines 19--25
+\OT1/cmr/m/n/10 10\OML/cmm/m/it/10 ; tol \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (17.43408pt too wide) in paragraph at lines 19--25
+\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 e \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (76.34848pt too wide) in paragraph at lines 19--25
+\OT1/cmr/m/n/10 5\OML/cmm/m/it/10 ; random[]tate \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (92.50095pt too wide) in paragraph at lines 19--25
+\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; learning[]ate[]nit \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (115.96187pt too wide) in paragraph at lines 19--25
+\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 1)\OML/cmm/m/it/10 mlp:fit\OT1/cmr/m/n/10 (\O
+ML/cmm/m/it/10 X[]rain; y[]rain\OT1/cmr/m/n/10 )$ 
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 p
+      rint("Training set score: %f" % mlp.score(X_train, y_train))
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no T in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 26--27
+[]
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 p
+      rint("Test set score: %f" % mlp.score(X_test, y_test))
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no T in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 28--29
+[]
+ []
+
+! You can't use `macro parameter character #' in vertical mode.
+l.31 #
+       rf=RandomForestClassifier(nb_trees=10, pec_samples=0.4, max_workers=4,\
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.31 # r
+        f=RandomForestClassifier(nb_trees=10, pec_samples=0.4, max_workers=4,\
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no r in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no R in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no F in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no C in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no b in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.31 # rf=RandomForestClassifier(nb_
+                                    trees=10, pec_samples=0.4, max_workers=4,\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! You can't use `macro parameter character #' in math mode.
+l.32 #
+           criterion='gini', min_samples_leaf=1, max_depth=30,gain_ratio_thr...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in math mode.
+l.33 #
+       rf.fit(X)
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in math mode.
+l.34 #
+       Z= rf.predict(np.c_[xx.ravel(), yy.ravel()],0.04)
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+)
+! Emergency stop.
+<*> ...roject/machine_learning/code/CLTree/main.py
+                                                  
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 10 strings out of 492649
+ 434 string characters out of 6129622
+ 59149 words of memory out of 5000000
+ 3990 multiletter control sequences out of 15000+600000
+ 3640 words of font info for 14 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 18i,2n,12p,166b,56s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!

@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/Applications/anaconda2/lib/python2.7/site-packages/pudb-2017.1.4-py2.7.egg/pudb/__init__.py", line 93, in runscript
+    dbg._runscript(mainpyfile)
+  File "/Applications/anaconda2/lib/python2.7/site-packages/pudb-2017.1.4-py2.7.egg/pudb/debugger.py", line 432, in _runscript
+    self.run(statement, globals=globals_, locals=locals_)
+  File "/Applications/anaconda2/lib/python2.7/bdb.py", line 400, in run
+    exec cmd in globals, locals
+  File "<string>", line 1, in <module>
+  File "DecisionTree.py", line 465, in <module>
+    tree.fit(X)
+  File "DecisionTree.py", line 347, in fit
+    self.min_samples_leaf, self.gain_ratio_threshold)
+  File "base.py", line 47, in best_spliter
+    hists=array_hist(tX)
+  File "base.py", line 99, in hist
+    feature_set=list(set(x))
+TypeError: 'int' object is not iterable

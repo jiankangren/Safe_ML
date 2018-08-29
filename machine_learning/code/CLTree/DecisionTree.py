@@ -6,6 +6,8 @@ from sklearn.metrics import accuracy_score
 from Score_Func import GiniFunc
 from base import *
 import pudb
+import numba
+from numpy import frompyfunc
 
 IS_LEAF = -1
 FAIL_TO_FIND=-1
@@ -49,7 +51,7 @@ class Leaf(object):
     'threshold', 'purity', 'n_node_samples','score')
     """
 
-    def __init__(self,X,n_empty=0,depth=1,feature_limit=None,\
+    def __init__(self,X,n_empty=0,depth=1,feature_limit=[],\
             split_set_L=set([]),split_set_R=set([])):
         super(Leaf, self).__init__()
         if not isinstance (X,np.ndarray):
@@ -59,32 +61,40 @@ class Leaf(object):
         self.X=X
         self.sortedX=np.sort(X.T)
         self.n_empty=n_empty
-        self.feature_limit=[[x[0],x[-1]] for x in self.sortedX]   if feature_limit ==None \
-            else [[f[0],f[1]] for f in feature_limit]
-        self.__dict__['n_sample']=len(self.X)
-        self.__dict__['n_feature']=len(self.sortedX)
-        self.depth=depth
+        # pudb.set_trace()
+        if feature_limit==[]:
+            self.feature_limit=np.array([ [x[0]  for x in self.sortedX ] ,[x[-1] for x in self.sortedX ]]) 
+        else:
+             self.feature_limit=np.copy(feature_limit)
+        self.__dict__['n_sample']=int(len(self.X))
+        self.__dict__['n_feature']=int(len(self.X.T))
+        self.__dict__['depth']=depth
         self.split_set_L=split_set_L
         self.split_set_R=split_set_R
     @property
     def feature_limit_X(self):
-        S=[[f[0],f[1]] for f in self.feature_limit]
-        full_set=set(range(0,len(self.X.T)))
-        for i in full_set^self.split_set_L:
-            S[i][0]=self.sortedX[i][0] 
-        for i in full_set^self.split_set_R:
-            S[i][1]=self.sortedX[i][-1] 
-        return S
+        if 'feature_limit_X' not in self.__dict__.keys():
+            S=np.copy(self.feature_limit)
+            full_set=set(range(0,len(self.X.T)))
+            for i in full_set^self.split_set_L:
+                S[0][i]=self.sortedX[i][0]- 1e-10
+            for i in full_set^self.split_set_R:
+                S[1][i]=self.sortedX[i][-1]+1e-10
+            self.__dict__['feature_limit_X']=S
+
+        return  self.__dict__['feature_limit_X']
     
 
     @property
     def vol(self): 
-        return np.prod(np.array([feature_limit[1]-feature_limit[0] \
-            for feature_limit in self.feature_limit]))
+        tmp=np.array(self.feature_limit[1]-self.feature_limit[0])
+        return np.prod(tmp)
+    
     @property
     def vol_X(self): 
-        return np.prod(np.array([feature_limit[1]-feature_limit[0] \
-            for feature_limit in self.feature_limit_X]))
+        tmp=np.array(self.feature_limit_X[1]-self.feature_limit_X[0])
+        return np.prod(tmp )
+
     @property
     def feature_gap(self):
         return None
@@ -94,6 +104,9 @@ class Leaf(object):
     @property
     def n_feature(self): 
         return self.__dict__['n_feature']
+    @property
+    def depth(self): 
+        return self.__dict__['depth']
     
     """
     Split data by feature i with value s, and return node_left,node_right
@@ -106,7 +119,7 @@ class Leaf(object):
         s2.add(i)
         node_left=Leaf(self.X[left_index],n_empty_left,self.depth+1,\
             self.feature_limit,s1,s2)
-        node_left.feature_limit[i][1]=s
+        node_left.feature_limit[1][i]=s
 
 
         right_index=np.logical_not(left_index)
@@ -115,7 +128,7 @@ class Leaf(object):
         s2=set(self.split_set_R)
         node_right=Leaf(self.X[right_index],n_empty_right,self.depth+1,\
             self.feature_limit,s1,s2)
-        node_right.feature_limit[i][0]=s
+        node_right.feature_limit[0][i]=s
 
         
         return   node_left,   node_right
@@ -237,6 +250,28 @@ class CLTree(object):
         x=0
         n_predict_sample=len(X)
         Y=np.zeros(n_predict_sample)
+        def _decision_func(x):
+            ID=0
+            while self.feature[ID]!=IS_LEAF:
+                split_index=self.feature[ID]
+                if x[split_index]<=self.threshold_left[ID]:
+                    ID=self.children_left[ID]
+                elif x[split_index]>=self.threshold_right[ID]:
+                    ID=self.children_right[ID]
+                else:
+                    # Y[i]=-1
+                    return int(-1)
+                    # break
+            if self.feature[ID]==IS_LEAF:
+                # Y[i]=ID
+                return ID 
+        # pudb.set_trace()
+        Y=list(map(_decision_func,X))
+        return np.array(Y)
+    def decision_func_old(self,X):
+        x=0
+        n_predict_sample=len(X)
+        Y=np.zeros(n_predict_sample)
         for i in xrange(0,n_predict_sample):
             x=X[i]
             ID=0
@@ -269,25 +304,51 @@ class CLTree(object):
         Y : [float * n_predict_sample]
             0 denotes empty space and 1 denotes confident region
     """
-    def predict(self,X,threshold=0.5):
+    def predict_old(self,X,threshold=0.5):
         Y=self.decision_func(X)
+        Z=np.zeros(len(Y))
         for i in xrange(0,len(Y)):
             if Y[i]==-1:
-                Y[i]=0
+                pass
             else :
                 ID=int(Y[i])
                 x=X[i]
-                if_satisfy=np.prod([int(self.leaves[ID].feature_limit_X[j][0]<=x[j]\
-                    <= self.leaves[ID].feature_limit_X[j][1]) for j in xrange(0,len(x))])>0
-                if if_satisfy:
-                    Y[i]= self.density_X[ID]
-                elif np.prod([int(self.leaves[ID].feature_limit[j][0]<=x[j]\
-                    <= self.leaves[ID].feature_limit[j][1]) for j in xrange(0,len(x))])>0:
-                    Y[i]=self.density[ID]
+                if np.all(np.array([(self.leaves[ID].feature_limit_X[0]<=x),\
+                    (x<=self.leaves[ID].feature_limit_X[1])])):
+                    # pudb.set_trace()
+                    Z[i]= self.density_X[ID]
+                elif np.all(np.array([(self.leaves[ID].feature_limit[0]<=x),\
+                    (x<=self.leaves[ID].feature_limit[1]) ])):
+                    # pudb.set_trace()
+                    Z[i]=self.density[ID]
                 else:
-                    Y[i]=0
-        Y=(Y>threshold)+np.zeros(len(Y))
-        return np.array(Y)
+                    Z[i]=0
+        Z=(Z>threshold)+np.zeros(len(Y))
+        # print Z
+        return np.array(Z)
+    def predict(self,X,threshold=0.5):
+        Y=self.decision_func(X)
+        Z=np.zeros(len(Y))
+        def _predict(y,x):
+            if y==-1:
+                return 0
+            else :
+                ID=int(y)
+                if np.all(np.array([(self.leaves[ID].feature_limit_X[0]<=x),\
+                    (x<=self.leaves[ID].feature_limit_X[1])])):
+                    # pudb.set_trace()
+                    return self.density_X[ID]
+                elif np.all(np.array([(self.leaves[ID].feature_limit[0]<=x),\
+                    (x<=self.leaves[ID].feature_limit[1]) ])):
+                    # pudb.set_trace()
+                    return self.density[ID]
+                else:
+                    return 0
+        Z=np.array(map(_predict,Y,X))
+        # Z=(Z>threshold) +np.zeros(len(Y))
+        # print Z
+        return np.array(Z)
+
 
 
 
@@ -297,8 +358,8 @@ class CLTree(object):
 
     """ Build the tree 
     """
-    def fit(self,X):
-
+    # @numba.autojit
+    def fit(self,X,max_feature_p=0.5,max_try_p=0.5):
         if   self.max_depth<=1:
             raise ValueError("Tree depth should be greater than 1, get  %d" %(max_depth))
         n_feature=len(X.T)
@@ -306,6 +367,7 @@ class CLTree(object):
         i=0 # keep node index
         root=Leaf(X,n_empty=len(X),depth=1)
         self.leaves[0]=root
+
 
         '''total_sample, total volumne'''
         self.vol=root.vol
@@ -318,6 +380,7 @@ class CLTree(object):
             print 'root.n_sample= min_samples_leaf'
             self.feature[0]=IS_LEAF
             return 
+        # pudb.set_trace()
         while len(heap)>0:
             if i>=len(self.feature)-2: #Increase the array_attributes size
                 self.memory_update()            
@@ -331,7 +394,7 @@ class CLTree(object):
             current_node.n_empty=max(current_node.n_sample, current_node.n_empty)
 
             index,s,score_gain=best_spliter(current_node,self.criterion,self.root_gain,\
-             self.min_samples_leaf, self.gain_ratio_threshold)
+             self.min_samples_leaf, self.gain_ratio_threshold,max_feature_p,max_try_p)
             
             if current_node.depth==1:
                 self.root_gain=score_gain
@@ -345,12 +408,10 @@ class CLTree(object):
                     (current_node.n_sample+self.total_sample * current_node.vol/self.vol)              
                 self.density_X[current_node_index]= current_node.n_sample/ \
                     (current_node.n_sample + self.total_sample * current_node.vol_X/self.vol) 
-            
-
                 continue
 
-            xmin=current_node.feature_limit[index][0]
-            xmax=current_node.feature_limit[index][1]
+            xmin=current_node.feature_limit[0][index]
+            xmax=current_node.feature_limit[1][index]
             L=float(xmax-xmin)
 
             
@@ -360,8 +421,8 @@ class CLTree(object):
             node_left,node_right=current_node.split_by_index(index,s,n_empty_left,n_empty_right)
 
             self.feature[current_node_index]=index
-            self.threshold_left[current_node_index]= node_left.feature_limit[index][1]
-            self.threshold_right[current_node_index] = node_right.feature_limit[index][0]
+            self.threshold_left[current_node_index]= node_left.feature_limit[1][index]
+            self.threshold_right[current_node_index] = node_right.feature_limit[0][index]
 
             
 
@@ -393,7 +454,7 @@ class CLTree(object):
             else:
                 heap.append(id_right)
             self.leaves[id_right]=node_right
-
+        print '############'
 
 
        
@@ -418,7 +479,7 @@ if __name__=='__main__':
     moon=make_moons(n_samples=n,noise=0.3, random_state=0)
     circle=make_circles(n_samples=n,noise=0.2, factor=0.5, random_state=1)  
     X,y=    circle
-    print X
+    # print X
     # x11=np.linspace(0, 4, num=250)
     # x12=np.linspace(6, 10, num=250)
     # x1=np.concatenate((x11, x12), axis=0)
@@ -426,59 +487,52 @@ if __name__=='__main__':
     # X=np.array([x1,x2]).T
     # y=np.ones(len(X))
 
-    X= np.array([
-    [-2.571244718,4.784783929],
-    [-3.571244718,5.784783929],
-    [-3.771244718,1.784783929],
-    [-2.771244718,1.784783929],
-    [2.771244718,1.784783929],
-    [1.728571309,1.169761413],
-    [3.678319846,2.81281357],
-    [3.961043357,2.61995032],
-    [2.999208922,2.209014212],
-    [7.497545867,3.162953546],
-    [9.00220326,3.339047188],
-    [7.444542326,0.476683375],
-    [10.12493903,3.234550982],
-    [6.642287351,3.319983761]])
-    y=np.ones(len(X))
+    # X= np.array([
+    # [-2.571244718,4.784783929],
+    # [-3.571244718,5.784783929],
+    # [-3.771244718,1.784783929],
+    # [-2.771244718,1.784783929],
+    # [2.771244718,1.784783929],
+    # [1.728571309,1.169761413],
+    # [3.678319846,2.81281357],
+    # [3.961043357,2.61995032],
+    # [2.999208922,2.209014212],
+    # [7.497545867,3.162953546],
+    # [9.00220326,3.339047188],
+    # [7.444542326,0.476683375],
+    # [10.12493903,3.234550982],
+    # [6.642287351,3.319983761]])
+    # y=np.ones(len(X))
     
-    X= np.array([[0,0],[1,1,],[3,3],[4,4],[6,6],[7,7],[9,9],[10,10]])
-    y=np.ones(len(X))
+    # X= np.array([[0,0],[1,1,],[3,3],[4,4],[6,6],[7,7],[9,9],[10,10]])
+    # y=np.ones(len(X))
 
-    h=0.05
+    h=0.2
     x1_min, x1_max = X.T[0].min() - .01, X.T[0].max() + .01
     x2_min, x2_max = X.T[1].min() - .01, X.T[1].max() + .01
     xx, yy = np.meshgrid(np.arange(x1_min-1, x1_max+1, h),np.arange(x2_min-1, x2_max+1, h))
     tree=CLTree(criterion='gini',min_samples_leaf=2, max_depth=50,gain_ratio_threshold=0.1)
-    tree.fit(X)
-    Z=tree.predict(np.c_[xx.ravel(), yy.ravel()],threshold=0.6)
-    Z=Z.reshape(xx.shape)
+    tree.fit(X,1,1)
+    # Z=tree.predict(np.c_[xx.ravel(), yy.ravel()],threshold=0.3)
+    # Z=Z.reshape(xx.shape)
     # print Z
-    ax = plt.subplot(1, 1, 1)
-    cm = plt.cm.RdBu
-    cm_bright = ListedColormap(['#FF0000', '#0000FF'])
-    ax.set_title("")
-    ax.scatter(X.T[0], X.T[1], c=y, cmap=cm_bright,edgecolors='k')
-    ax.set_xlim(x1_min, x1_max)
-    ax.set_ylim(x2_min, x2_max)
-    ax.set_xticks(range(int(floor(x1_min)),int(ceil(x1_max))))
-    ax.set_yticks(range(int(floor(x2_min)),int(ceil(x2_max))))
-    cntr1 = ax.contourf(xx, yy, Z, cmap=cm, alpha=.8)
-    cbar0 = plt.colorbar( cntr1,)
-    # print tree.feature
-    # print tree.threshold_left
-    # print tree.children_left
-    # print tree.threshold_right
-    # print tree.children_right
-    # for leaf_key in tree.leaves.keys():
-    #     print '----'
-    #     print tree.leaves[leaf_key].X
-    #     print '~~~~'
-    #     print tree.leaves[leaf_key].feature_limit_X
-    # print tree.ICDF_threshold([0.2,0.4,0.6,0.8])
-    plt.tight_layout()
-    plt.show()
+    # ax = plt.subplot(1, 1, 1)
+    # cm = plt.cm.tab20c
+    # ax.set_title("")
+    # ax.scatter(X.T[0], X.T[1], c=y, cmap=cm,edgecolors='k')
+    # ax.set_xlim(x1_min, x1_max)
+    # ax.set_ylim(x2_min, x2_max)
+    # ax.set_xticks(range(int(floor(x1_min)),int(ceil(x1_max))))
+    # ax.set_yticks(range(int(floor(x2_min)),int(ceil(x2_max))))
+    # cntr1 = ax.contourf(xx, yy, Z, cmap=cm, alpha=.8)
+    # cbar0 = plt.colorbar( cntr1,)
+    # plt.tight_layout()
+    # plt.show()
+    # Z=tree.predict(X,threshold=0.3)
+    # print Z
+    leaf_key = tree.leaves.keys()
+    print tree.density_X[leaf_key]
+    print tree.density[leaf_key]
 
 
 

@@ -2,7 +2,7 @@ import abc
 from numpy import log2
 import numpy as np
 # from ctypes import *
-
+import numba
 
 
 class ScoreFunc(object):
@@ -14,7 +14,7 @@ class ScoreFunc(object):
 		super(ScoreFunc, self).__init__()
 
 	@abc.abstractmethod
-	def score(self, Node,i,s,n_left,n_right,n_empty): 
+	def score(self): 
 		"""
         Apply the score metric function
 
@@ -35,19 +35,20 @@ class ScoreFunc(object):
 		-------
 		score : the final score
 		"""
-		pass
+	
 
 class GiniFunc(ScoreFunc):
     def __init__(self):
         super(GiniFunc, self).__init__()
         # self.GINI = cdll.LoadLibrary('./GINI.so')
-    
-    def score(self,node,i,s,n_left,n_right,n_empty):
+    def score(self,xmin,xmax,s,n_left,n_right,n_empty,min_samples_leaf):
         """
         return  Gini Score for the split : IG_gain
         """
-        xmin=node.feature_limit[i][0]
-        xmax=node.feature_limit[i][1]
+        # xmin=node.feature_limit[0][i]
+        # xmax=node.feature_limit[1][i]
+        if n_left<min_samples_leaf or n_right<min_samples_leaf:
+            return float('inf')
         L=float(xmax-xmin)
         E1=n_empty*((s-xmin)/L)
         E2=n_empty*((xmax-s)/L)
@@ -58,6 +59,18 @@ class GiniFunc(ScoreFunc):
         IG_gain=IGL*((n_left+E1)/(E1+E2+n_left+n_right))+\
             IGR*((n_right+E2)/(E1+E2+n_left+n_right))
         return  IG_gain
+    def array_score(self,xmin,xmax,Ss,N_LEFT,N_RIGHT,n_empty,min_samples_leaf):
+        """
+        return  Gini Score for the split : IG_gain
+        """
+        # xmin=node.feature_limit[0][i]
+        # xmax=node.feature_limit[1][i]
+        def _score(s,n_left,n_right):
+            return self.score(xmin,xmax,s,n_left,n_right,n_empty,min_samples_leaf)
+        A_score= np.frompyfunc(_score, 3, 1)
+        return A_score(Ss,N_LEFT,N_RIGHT)
+
+
     def gini_index(self,n_sample,n_empty):
         """
         return gini index 
@@ -116,10 +129,7 @@ class GiniFunc(ScoreFunc):
 
 
 if __name__=='__main__':
-    x=GiniFunc()
-  
-    y=x.gini_index(1.0,0.1)
-    print y
-
+    # print GiniFunc().array_score(1,10,[2,3,4],[2,3,4],[3,2,1],10,1)
+    pass
 
 
