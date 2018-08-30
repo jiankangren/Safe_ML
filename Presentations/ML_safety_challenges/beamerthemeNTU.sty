@@ -1,0 +1,41 @@
+% Copyright 2013 by Arvind Easwaran
+
+\ProvidesPackage{beamerthemeNTU}
+
+\ProcessOptionsBeamer
+
+\mode<presentation>
+{
+  \usetheme{Szeged}
+  \usecolortheme{beaver}
+
+\setbeamertemplate{headline}
+{%
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}{section in head/foot}
+    \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+
+\setbeamertemplate{footline}
+{%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{default}%
+     \pgfdeclareimage[width=0.2\linewidth]{university-logo}{figures/logo}
+     \pgfuseimage{university-logo} \hspace*{86ex}
+    \insertframenumber{}/\inserttotalframenumber\hspace*{2ex} 
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+    \end{beamercolorbox}
+  }
+
+\beamertemplatenavigationsymbolsempty
+
+}
+
+\mode<all>
