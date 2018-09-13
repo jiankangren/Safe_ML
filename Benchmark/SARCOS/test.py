@@ -9,7 +9,7 @@ mat = io.loadmat('train.mat')
 # print help(mat)
 matrix=mat['sarcos_inv']
 data=pd.DataFrame(matrix)
-# data.info()
+data.info()
 # print data.head(5)
 # X=data[0:27]
 # Y=data[27]

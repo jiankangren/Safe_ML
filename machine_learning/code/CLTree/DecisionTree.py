@@ -1,4 +1,4 @@
-from sklearn.base import BaseEstimator
+
 from abc import ABCMeta
 from abc import abstractmethod
 import numpy as np
@@ -8,6 +8,7 @@ from base import *
 import pudb
 import numba
 from numpy import frompyfunc
+from Head import *
 
 IS_LEAF = -1
 FAIL_TO_FIND=-1
@@ -59,11 +60,12 @@ class Leaf(object):
         if len(X)<=0:
             raise ValueError("Sample number should be than 0 , got %s" % len(X))
         self.X=X
+        self.center=np.mean(self.X,axis=0)
         self.sortedX=np.sort(X.T)
         self.n_empty=n_empty
         # pudb.set_trace()
         if feature_limit==[]:
-            self.feature_limit=np.array([ [x[0]  for x in self.sortedX ] ,[x[-1] for x in self.sortedX ]]) 
+            self.feature_limit=np.array([ [float(x[0])  for x in self.sortedX ] ,[float(x[-1]) for x in self.sortedX ]]) 
         else:
              self.feature_limit=np.copy(feature_limit)
         self.__dict__['n_sample']=int(len(self.X))
@@ -71,6 +73,17 @@ class Leaf(object):
         self.__dict__['depth']=depth
         self.split_set_L=split_set_L
         self.split_set_R=split_set_R
+    # @property
+    # def d_max(self):
+    #     if 'd_max' not in self.__dict__.keys():
+    #         min_f=self.feature_limit[0]
+    #         max_f=self.feature_limit[1]
+    #         temp=[max(self.center[i]-min_f[i],max_f[i]-self.center[i])**2 for i in xrange(0,self.n_feature)]
+    #         self.__dict__['d_max']=sum(temp)
+    #     return  self.__dict__['d_max']
+
+
+
     @property
     def feature_limit_X(self):
         if 'feature_limit_X' not in self.__dict__.keys():
@@ -83,18 +96,38 @@ class Leaf(object):
             self.__dict__['feature_limit_X']=S
 
         return  self.__dict__['feature_limit_X']
-    
+    @property
+    def feature_limit_Y(self):
+        if 'feature_limit_Y' not in self.__dict__.keys():
+            S=np.copy(self.feature_limit)
+            full_set=set(range(0,len(self.X.T)))
+            for i in full_set:
+                S[0][i]=self.sortedX[i][0]- 1e-10
+            for i in full_set:
+                S[1][i]=self.sortedX[i][-1]+1e-10
+            self.__dict__['feature_limit_Y']=S
+
+        return  self.__dict__['feature_limit_Y']
 
     @property
-    def vol(self): 
-        tmp=np.array(self.feature_limit[1]-self.feature_limit[0])
-        return np.prod(tmp)
+    def vol(self):
+        if 'vol' not in self.__dict__.keys(): 
+            tmp=np.array(self.feature_limit[1]-self.feature_limit[0])
+            self.__dict__['vol']=np.prod(tmp)
     
+        return self.__dict__['vol']
     @property
     def vol_X(self): 
-        tmp=np.array(self.feature_limit_X[1]-self.feature_limit_X[0])
-        return np.prod(tmp )
-
+        if 'vol_X' not in self.__dict__.keys() :
+            tmp=np.array(self.feature_limit_X[1]-self.feature_limit_X[0])
+            self.__dict__['vol_X']=np.prod(tmp)
+        return self.__dict__['vol_X']
+    @property
+    def vol_Y(self): 
+        if 'vol_Y' not in self.__dict__.keys() :
+            tmp=np.array(self.feature_limit_Y[1]-self.feature_limit_Y[0])
+            self.__dict__['vol_Y']=np.prod(tmp)
+        return self.__dict__['vol_Y']
     @property
     def feature_gap(self):
         return None
@@ -130,7 +163,6 @@ class Leaf(object):
             self.feature_limit,s1,s2)
         node_right.feature_limit[0][i]=s
 
-        
         return   node_left,   node_right
 
 """
@@ -193,6 +225,7 @@ class CLTree(object):
         self.threshold_right=np.zeros(CONSTANT_SIZE)
         self.density=np.zeros(CONSTANT_SIZE)
         self.density_X=np.zeros(CONSTANT_SIZE)
+        self.density_Y=np.zeros(CONSTANT_SIZE)
         self.vol=0
         self.total_sample=0
         self.root_gain=None
@@ -233,6 +266,7 @@ class CLTree(object):
         self.threshold_right=np.append(self.threshold_right,np.zeros(size))
         self.density=np.append(self.density,np.zeros(size))
         self.density_X=np.append(self.density_X,np.zeros(size))
+        self.density_Y=np.append(self.density_Y,np.zeros(size))
     
     """ Determine the leaf ID of for X
         
@@ -304,28 +338,6 @@ class CLTree(object):
         Y : [float * n_predict_sample]
             0 denotes empty space and 1 denotes confident region
     """
-    def predict_old(self,X,threshold=0.5):
-        Y=self.decision_func(X)
-        Z=np.zeros(len(Y))
-        for i in xrange(0,len(Y)):
-            if Y[i]==-1:
-                pass
-            else :
-                ID=int(Y[i])
-                x=X[i]
-                if np.all(np.array([(self.leaves[ID].feature_limit_X[0]<=x),\
-                    (x<=self.leaves[ID].feature_limit_X[1])])):
-                    # pudb.set_trace()
-                    Z[i]= self.density_X[ID]
-                elif np.all(np.array([(self.leaves[ID].feature_limit[0]<=x),\
-                    (x<=self.leaves[ID].feature_limit[1]) ])):
-                    # pudb.set_trace()
-                    Z[i]=self.density[ID]
-                else:
-                    Z[i]=0
-        Z=(Z>threshold)+np.zeros(len(Y))
-        # print Z
-        return np.array(Z)
     def predict(self,X,threshold=0.5):
         Y=self.decision_func(X)
         Z=np.zeros(len(Y))
@@ -334,6 +346,11 @@ class CLTree(object):
                 return 0
             else :
                 ID=int(y)
+                # if np.all(np.array([(self.leaves[ID].feature_limit_Y[0]<=x),\
+                #     (x<=self.leaves[ID].feature_limit_Y[1])])):
+                #     # pudb.set_trace()
+                #     return self.density_Y[ID]
+                # el
                 if np.all(np.array([(self.leaves[ID].feature_limit_X[0]<=x),\
                     (x<=self.leaves[ID].feature_limit_X[1])])):
                     # pudb.set_trace()
@@ -348,6 +365,7 @@ class CLTree(object):
         # Z=(Z>threshold) +np.zeros(len(Y))
         # print Z
         return np.array(Z)
+
 
 
 
@@ -381,13 +399,22 @@ class CLTree(object):
             self.feature[0]=IS_LEAF
             return 
         # pudb.set_trace()
+        
+        global DEBUG
+        count=0
+        pec=int(floor(len(X)/100))
+        
         while len(heap)>0:
+            if DEBUG :
+                count+=1
+                if count%pec==0:
+                    print "Progress:", count/pec
             if i>=len(self.feature)-2: #Increase the array_attributes size
                 self.memory_update()            
 
             current_node_index=heap.pop()
             current_node=self.leaves.pop(current_node_index)
-            # pudb.set_trace()
+         
 
             '''update n_empty
             '''
@@ -403,11 +430,12 @@ class CLTree(object):
                 '''
                 self.feature[current_node_index]=IS_LEAF
                 self.leaves[current_node_index]=current_node  
-
                 self.density[current_node_index] =   current_node.n_sample/ \
                     (current_node.n_sample+self.total_sample * current_node.vol/self.vol)              
                 self.density_X[current_node_index]= current_node.n_sample/ \
                     (current_node.n_sample + self.total_sample * current_node.vol_X/self.vol) 
+                self.density_Y[current_node_index]= current_node.n_sample/ \
+                    (current_node.n_sample + self.total_sample * current_node.vol_Y/self.vol) 
                 continue
 
             xmin=current_node.feature_limit[0][index]
@@ -435,6 +463,8 @@ class CLTree(object):
                     (node_left.n_sample+self.total_sample * node_left.vol/self.vol)              
                 self.density_X[id_left]=    node_left.n_sample/ \
                     (node_left.n_sample + self.total_sample * node_left.vol_X/self.vol)
+                self.density_Y[id_left]=    node_left.n_sample/ \
+                    (node_left.n_sample + self.total_sample * node_left.vol_Y/self.vol)
               
             else:
                 heap.append(id_left)
@@ -443,18 +473,19 @@ class CLTree(object):
             i+=1
             id_right=i
             self.children_right[current_node_index]=id_right
-            if   node_right.depth>= self.max_depth or node_right.n_sample<= self.min_samples_leaf:                
+            if   node_right.depth>= self.max_depth or node_right.n_sample<= self.min_samples_leaf:    
                 self.feature[id_right]=IS_LEAF
                 self.density[id_right] =   node_right.n_sample/ \
                     (node_right.n_sample+ self.total_sample  * node_right.vol/self.vol)              
                 self.density_X[id_right]=  node_right.n_sample/ \
                     (node_right.n_sample +self.total_sample * node_right.vol_X/self.vol)
+                self.density_Y[id_right]=  node_right.n_sample/ \
+                    (node_right.n_sample +self.total_sample * node_right.vol_Y/self.vol)
              
 
             else:
                 heap.append(id_right)
             self.leaves[id_right]=node_right
-        print '############'
 
 
        
@@ -466,7 +497,7 @@ class CLTree(object):
 
 
 if __name__=='__main__':
-    n=200
+    n=500
     from sklearn.datasets import make_moons, make_circles, make_classification
     X, y = make_classification(n_samples=n,n_features=3, n_redundant=0, n_informative=3,
                                random_state=1, n_clusters_per_class=2)
@@ -506,33 +537,41 @@ if __name__=='__main__':
     
     # X= np.array([[0,0],[1,1,],[3,3],[4,4],[6,6],[7,7],[9,9],[10,10]])
     # y=np.ones(len(X))
-
-    h=0.2
-    x1_min, x1_max = X.T[0].min() - .01, X.T[0].max() + .01
-    x2_min, x2_max = X.T[1].min() - .01, X.T[1].max() + .01
+    
+    from Preprocess import *
+    file1=['./data/robot/','2.csv']
+    X_train, X_test, y_train, y_test = read_data(file1[0])
+    X=X_train
+    h=0.02
+    x1_min, x1_max = X.T[0].min() - .1, X.T[0].max() + .1
+    x2_min, x2_max = X.T[1].min() - .1, X.T[1].max() + .1
     xx, yy = np.meshgrid(np.arange(x1_min-1, x1_max+1, h),np.arange(x2_min-1, x2_max+1, h))
-    tree=CLTree(criterion='gini',min_samples_leaf=2, max_depth=50,gain_ratio_threshold=0.1)
+    tree=CLTree(criterion='gini',min_samples_leaf=1, max_depth=50,gain_ratio_threshold=1e-10)
     tree.fit(X,1,1)
-    # Z=tree.predict(np.c_[xx.ravel(), yy.ravel()],threshold=0.3)
-    # Z=Z.reshape(xx.shape)
-    # print Z
-    # ax = plt.subplot(1, 1, 1)
+
+   
+
+    Z=tree.predict(np.c_[xx.ravel(), yy.ravel()],threshold=0.3)
+    Z=Z.reshape(xx.shape)
+    ax = plt.subplot(1, 1, 1)
+    cm0= plt.cm.RdBu
     # cm = plt.cm.tab20c
-    # ax.set_title("")
-    # ax.scatter(X.T[0], X.T[1], c=y, cmap=cm,edgecolors='k')
-    # ax.set_xlim(x1_min, x1_max)
-    # ax.set_ylim(x2_min, x2_max)
-    # ax.set_xticks(range(int(floor(x1_min)),int(ceil(x1_max))))
-    # ax.set_yticks(range(int(floor(x2_min)),int(ceil(x2_max))))
-    # cntr1 = ax.contourf(xx, yy, Z, cmap=cm, alpha=.8)
-    # cbar0 = plt.colorbar( cntr1,)
-    # plt.tight_layout()
-    # plt.show()
-    # Z=tree.predict(X,threshold=0.3)
+    cm = plt.cm.hot
+    ax.set_title("")
+    ax.scatter(X.T[0], X.T[1],cmap=cm0,edgecolors='k')
+    ax.set_xlim(x1_min, x1_max)
+    ax.set_ylim(x2_min, x2_max)
+    ax.set_xticks(range(int(floor(x1_min)),int(ceil(x1_max))))
+    ax.set_yticks(range(int(floor(x2_min)),int(ceil(x2_max))))
+    cntr1 = ax.contourf(xx, yy, Z,cmap=cm, levels=np.arange(0,1,0.02),alpha=.8)
+    cbar0 = plt.colorbar( cntr1,)
+    plt.tight_layout()
+    plt.show()
+    # Z=tree.predict(X,threshold=0)
     # print Z
-    leaf_key = tree.leaves.keys()
-    print tree.density_X[leaf_key]
-    print tree.density[leaf_key]
+    # leaf_key = tree.leaves.keys()
+    # print tree.density_X[leaf_key]
+    # print tree.density[leaf_key]
 
 
 

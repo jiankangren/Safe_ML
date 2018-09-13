@@ -1,0 +1,30 @@
+\section{Introduction}
+In this section, we can talk about 
+\begin{itemize}
+    \item The trend of ML  in CPS and the need of safety AI.
+    \item The safe fail technique, and the need to determine whether to reject predict.
+\end{itemize}
+
+
+\input{relatedworks}
+
+
+\subsection{Motivation}
+Data-driven  models are trained by ML learning algorithms using a subset of possible scenarios that could be encountered operationally.   Thus,  the models produced by ML algorithms  can only be as good as the examples that have learned.  However, the training set is usually incomplete and there is no guarantee that it is even representative of the space of possible inputs~\cite{ISO16}.  Previous study~\cite{weiss1995learning} has demonstrated that  feature space that lack of data generally have a much higher error rate.    
+
+For example, Figure~\ref{fig:toy1} shows the decision boundary learned by a SVM classifier to predict the whether a wall-following  robot is turning right sharply.  The value in the contour map represents the probability learned by the classifier that the instance belong to class ``Sharp-Right-Turn''.  As we can observe, the training samples is not  representative of testing samples at all. However, the classifier still has relative high confidence in some regions where it has not well learned but lots of many testing samples locates. As a result, a lot of testing samples that belong to other classes are misclassified as ``Sharp-Right-Turn'', and accuracy for testing samples decreases to $66\%$ while the accuracy for training samples is almost $100\%$. In practice, safety-critical scenarios like traffic accidents are very rare and ML algorithms usually do not receive enough such training samples.
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.45\textwidth]{FIG/toy1.png}
+\caption{Wall-following navigation task with mobile robot SCITOS-G5 based on sensor readings from the front and left sensor~\cite{Dua:2017}.}
+\label{fig:toy1}
+\end{figure}
+
+
+Therefore, it is very important to identify the feature space that the model is not well trained from that it does not receive enough training samples.
+
+ % so that safety-critical systems with ML component could  REJECT OR GET MORE TRAINING SAMPLES
+
+\noindent\textbf{Desired Characteristics}

@@ -1,0 +1,67 @@
+\documentclass[10pt,conference]{IEEEtran}
+\usepackage{diagbox}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{subfigure}
+\usepackage{tikz}
+\usepackage{epsfig}
+\usepackage{cite}
+\usetikzlibrary{shapes}
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{positioning}
+\usetikzlibrary{patterns}
+\usetikzlibrary{backgrounds}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+
+
+\renewcommand{\ae}[1]{{\color{red}{#1}}}
+\newcommand{\my}[1]{{\color{blue}{#1}}}
+\newcommand{\old}[1]{{\color{green}{#1}}}
+\newcommand{\pur}[1]{{\color{purple}{#1}}}
+
+\begin{document}
+
+\title{Towards Assured Machine Learning for CPS: Identify ``Unconfident'' Regions}
+\author{
+\IEEEauthorblockN{Xiaozhe Gu, Arvind Easwaran}
+\IEEEauthorblockA{Nanyang Technological University, Singapore \\
+Email: guxi0002@e.ntu.edu.sg, arvinde@ntu.edu.sg}
+}
+\maketitle
+
+
+\begin{abstract} 
+Machine learning (\emph{ML})  techniques are increasingly applied to decision-making and control problems in Cyber-Physical systems (CPS)  among which many are safety-critical, e.g., chemical  plants, robotics, autonomous vehicle, e.t.c.  Despite the benefit brought by ML techniques, they also raise safety issues because  1) most models produced by ML algorithms are not transparent and behave as  a block box and 2) the training data which plays a role as safety requirement is usually incomplete. An important  technique for  ML  to achieve safety  is ``Safe Fail'', i.e., a model rejects to predict and applies the backup solution when it has very low confidence in this prediction.  
+
+Data-driven models produced by ML algorithms learn from training data and hence they are only as good as the examples that have learned.   As observed in many previous studies, feature space that lack of data generally have a much higher error rate than regions that contain sufficient  training samples~\cite{weiss2004mining}. Therefore, it is important  for CPS containing ML components  to classify such error-prone ``unconfident'' regions from ``confident'' regions such that predictions made in ``unconfident'' regions could be rejected.  In this paper, we propose an efficient tree based classifier to address this problem.  From the experiment results, we also show that ML models has much worse performance in the ``unconfident'' regions identified by our proposed technique. 
+
+\end{abstract}
+
+
+\input{introduction}
+
+
+\section*{Acknowledgment}
+
+
+\section{Conclusion}
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{all}
+\end{document}
+
+
+
+
+
+
+

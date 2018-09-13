@@ -8,6 +8,7 @@ import copy_reg
 import types
 import multiprocessing
 from tqdm import tqdm
+from Preprocess import *
 
 CRITERIA_CLF = {"gini":GiniFunc()}
 
@@ -100,7 +101,7 @@ if __name__ == '__main__':
     import matplotlib.pyplot as plt
     import time
     from math import floor, ceil
-    n=200
+    n=400
     from sklearn.datasets import make_moons, make_circles, make_classification
     X, y = make_classification(n_samples=n,n_features=3, n_redundant=0, n_informative=3,
                                random_state=1, n_clusters_per_class=2)
@@ -114,24 +115,17 @@ if __name__ == '__main__':
     circle=make_circles(n_samples=n,noise=0.2, factor=0.5, random_state=1)  
     X,y=    circle
 
-    
-    mydata=pd.read_csv('./data/2.csv').values
-    X=np.array(mydata[:,0:2])
-    y=mydata[:,2]
-    label=list(set(y))
-    y=np.array(y)
-    index=[0]*len(label)
-    for i in range(0,len(label)):
-        index[i]=(y==label[i])
-        y[index[i]]=int(i) 
+    file1=['./data/robot/','2.csv']
+    X_train, X_test, y_train, y_test = read_data(file1[0])
+    X=np.concatenate((X_test,X_train), axis=0)
         
-    h=0.05
+    h=0.005
     x1_min, x1_max = X.T[0].min() - .1, X.T[0].max() + .1
     x2_min, x2_max =X.T[1].min() - .1, X.T[1].max() + .1
     xx, yy = np.meshgrid(np.arange(x1_min-1, x1_max+1, h),np.arange(x2_min-1, x2_max+1, h))
     
-    rf=RandomForestClassifier(nb_trees=25, pec_samples=0.4, max_workers=8,\
-        criterion='gini', min_samples_leaf=1, max_depth=15,gain_ratio_threshold=0.001,\
+    rf=RandomForestClassifier(nb_trees=4, pec_samples=0.4, max_workers=8,\
+        criterion='gini', min_samples_leaf=1, max_depth=25,gain_ratio_threshold=1e-10,\
                                max_feature_p=1,max_try_p=1)
     start_time=time.time()
     rf.fit(X)
@@ -139,21 +133,24 @@ if __name__ == '__main__':
     start_time=time.time()
    
     Z= rf.predict(np.c_[xx.ravel(), yy.ravel()],0.03)
+    print  'Predicting Time',  time.time()-start_time
+
+    # Z=Z>0.15+np.zeros(len(Z))
     Z=Z.reshape(xx.shape)
-    store_output(Z,'rf_robot2_1_Z')
+    # store_output(Z,'rf_robot2_1_Z')
     # store_output(xx,'rf_robot2_1_xx')
     # store_output(yy,'rf_robot2_1_yy')
 
     
-
-    # pY=rf.predict(X,0.00)
-    # print len(pY[pY>0.5])/float(len(pY))
-
-    # store_output(pY,'rf_robot2_1_pY')
-    
-    # print 'Predict Time',  time.time()-start_time
-
-
-    # Z=rf.predict(X,0)
-    # print len(Z[Z<0.05]),len(Z)
-    
+    ax = plt.subplot(1, 1, 1)
+    cm = plt.cm.tab20c
+    ax.set_title("")
+    ax.scatter(X.T[0], X.T[1], cmap=cm,edgecolors='k')
+    ax.set_xlim(x1_min, x1_max)
+    ax.set_ylim(x2_min, x2_max)
+    ax.set_xticks(range(int(floor(x1_min)),int(ceil(x1_max))))
+    ax.set_yticks(range(int(floor(x2_min)),int(ceil(x2_max))))
+    cntr1 = ax.contourf(xx, yy, Z, cmap=cm, alpha=.8)
+    cbar0 = plt.colorbar( cntr1,)
+    plt.tight_layout()
+    plt.show()
