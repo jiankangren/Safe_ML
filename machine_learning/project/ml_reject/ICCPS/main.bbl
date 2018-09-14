@@ -96,4 +96,16 @@ D.~Dheeru and E.~Karra~Taniskidou, ``{UCI} machine learning repository,'' 2017.
   [Online]. Available: \url{http://archive.ics.uci.edu/ml}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Breiman:2253780}
+L.~Breiman, J.~H. Friedman, R.~A. Olshen, and C.~J. Stone, \emph{Classification
+  and regression trees}, ser. The Wadsworth statistics/probability
+  series.\hskip 1em plus 0.5em minus 0.4em\relax Wadsworth \& Brooks/Cole
+  Advanced Books \& Software, 1984.
+
+\bibitem{SARCOS}
+\BIBentryALTinterwordspacing
+``Sarcos.'' [Online]. Available:
+  \url{http://www.gaussianprocess.org/gpml/data/}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}

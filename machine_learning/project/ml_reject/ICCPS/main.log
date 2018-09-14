@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.7.26)  13 SEP 2018 16:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.7.26)  14 SEP 2018 17:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -848,12 +848,73 @@ ap/pdftex.map}
 
 
 ]
-<FIG/toy1.png, id=20, 467.7475pt x 714.67pt>
+<FIG/toy1.png, id=20, 978.65625pt x 1437.37pt>
 File: FIG/toy1.png Graphic file (type png)
 <use FIG/toy1.png>
-Package pdftex.def Info: FIG/toy1.png  used on input line 20.
-(pdftex.def)             Requested size: 235.84328pt x 360.34389pt.
-) (./main.bbl)
+Package pdftex.def Info: FIG/toy1.png  used on input line 24.
+(pdftex.def)             Requested size: 235.84328pt x 346.37953pt.
+
+Underfull \hbox (badness 1496) in paragraph at lines 32--33
+\OT1/ptm/m/n/10 not re-ceive enough train-ing sam-ples. Sys-tems with ML
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--33
+
+ []
+
+<FIG/toy2.png, id=22, 1076.02pt x 714.67pt>
+File: FIG/toy2.png Graphic file (type png)
+<use FIG/toy2.png>
+Package pdftex.def Info: FIG/toy2.png  used on input line 43.
+(pdftex.def)             Requested size: 235.84328pt x 156.639pt.
+) (./evaluation.tex
+<FIG/toy3.png, id=23, 524.96124pt x 497.86pt>
+File: FIG/toy3.png Graphic file (type png)
+<use FIG/toy3.png>
+Package pdftex.def Info: FIG/toy3.png  used on input line 7.
+(pdftex.def)             Requested size: 209.63669pt x 198.81381pt.
+ [2 <./FIG/toy1.png> <./FIG/toy2.png>]
+<PLT/sarcos_mlpbox.png, id=29, 1434.35875pt x 714.67pt>
+File: PLT/sarcos_mlpbox.png Graphic file (type png)
+<use PLT/sarcos_mlpbox.png>
+Package pdftex.def Info: PLT/sarcos_mlpbox.png  used on input line 28.
+(pdftex.def)             Requested size: 262.04987pt x 130.56522pt.
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 28--29
+ [][] 
+ []
+
+<PLT/sarcos_svmbox.png, id=30, 1434.35875pt x 714.67pt>
+File: PLT/sarcos_svmbox.png Graphic file (type png)
+<use PLT/sarcos_svmbox.png>
+Package pdftex.def Info: PLT/sarcos_svmbox.png  used on input line 35.
+(pdftex.def)             Requested size: 262.04987pt x 130.56522pt.
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 35--36
+ [][] 
+ []
+
+<PLT/sarcos_gpbox.png, id=31, 1437.37pt x 1437.37pt>
+File: PLT/sarcos_gpbox.png Graphic file (type png)
+<use PLT/sarcos_gpbox.png>
+Package pdftex.def Info: PLT/sarcos_gpbox.png  used on input line 43.
+(pdftex.def)             Requested size: 262.04987pt x 262.04916pt.
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 43--44
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./main.bbl [3 <./FIG/toy3.png> <./PLT/sarcos_mlpbox.png> <./PLT/sarcos_svmbo
+x.png> <./PLT/sarcos_gpbox.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 107--110
+[]\OT1/ptm/m/n/8 ``Sarcos.'' [On-line]. Avail-able:
+ []
+
+)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -865,31 +926,33 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[2 <./FIG/toy1.png>] (./main.aux) ) 
+[4
+
+] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 17226 strings out of 492649
- 356691 string characters out of 6129622
- 449654 words of memory out of 5000000
- 20713 multiletter control sequences out of 15000+600000
+ 17264 strings out of 492649
+ 357371 string characters out of 6129622
+ 449719 words of memory out of 5000000
+ 20742 multiletter control sequences out of 15000+600000
  37876 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,7n,67p,1505b,235s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2018/texmf-dist/fonts/en
-c/dvips/base/8r.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></
-usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local
-/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2
-018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (2 pages, 166881 bytes).
+ 55i,7n,67p,1505b,251s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc
+}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
+sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/lo
+cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loc
+al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local
+/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2
+018/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2018/texmf
+-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2018/texmf-dist/font
+s/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (4 pages, 414299 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
+ 78 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 

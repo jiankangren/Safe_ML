@@ -31,24 +31,25 @@ if __SARCOS__:
 
 
     """
+    ===================================================================================
     Train CLTree
     """
     # tree=CLTree(criterion='gini',min_samples_leaf=5, max_depth=80,gain_ratio_threshold=0.00001)
     # tree.fit(X_train,1,0.5)
-    # save_model(tree,file[0]+'tree.pkl')
+    # save(tree,file[0]+'tree.pkl')
     
     """
     Load Tree and Predict
     """
 
-    # tree=load_model(file[0]+'tree.pkl')
-    # yt=tree.predict(X_train)
-    # yp=tree.predict(X_test)
+    tree=load(file[0]+'tree.pkl')
+    yt=tree.predict(X_train)
+    yp=tree.predict(X_test)
 
-    # yt.sort()
-    # k=int(floor(len(yt)*0.01))
-    # threshold=yt[k]
-    # print 'Threshold:', threshold
+    yt.sort()
+    k=int(floor(len(yt)*0.01))
+    threshold=yt[k]
+    print 'Threshold:', threshold
     # ax = plt.subplot(2, 2, 1)
     # plt.hist(tree.density,bins=25,density=True, histtype='step',cumulative=True)
     # ax = plt.subplot(2, 2, 2)
@@ -65,14 +66,15 @@ if __SARCOS__:
     # plt.show()
 
 
-    # inds=[yp<0.2,np.logical_and(yp>=0.2,yp<0.4), np.logical_and(yp>=0.4,yp<0.6),\
-         # np.logical_and(yp>=0.6,yp<0.8),np.logical_and(yp>=0.9,yp< threshold),np.logical_and(yp>= threshold,yp<1)]
+    inds=[yp<0.2,np.logical_and(yp>=0.2,yp<0.4), np.logical_and(yp>=0.4,yp<0.6),\
+         np.logical_and(yp>=0.6,yp<0.8),np.logical_and(yp>=0.9,yp< threshold),np.logical_and(yp>=threshold,yp<1)]
     # inds=[yp<threshold,yp>=threshold]
    
 
 
 
     """
+    ===================================================================================
     Train MLP and Predict
     List MSE
     """
@@ -86,14 +88,16 @@ if __SARCOS__:
     # y_pred_test=mlp.predict(X_test)
 
 
-
     # print mean_squared_error(y_train, y_pred_train)
     # print mean_squared_error(y_test, y_pred_test)
 
-    # for ind in inds:
-    #     print mean_squared_error(y_test[ind], y_pred_test[ind]) ,len(y_test[ind])
+    # ind=np.argsort(yp)
+    # R=np.square(y_test[ind]-y_pred_test[ind])
+    # save( R,file[0]+'mlpbox')
+
 
     """
+    ===================================================================================
     Train SVM  and Predict
     List MSE and STD
     """
@@ -105,18 +109,27 @@ if __SARCOS__:
     
     # print mean_squared_error(y_train, y_pred_train)
     # print mean_squared_error(y_test, y_pred_test)
+    
 
-    # for ind in inds:
-    #     print mean_squared_error(y_test[ind], y_pred_test[ind]) ,len(y_test[ind])
+    # ind=np.argsort(yp)
+    
+    # # R=[]
+    # # for ind in inds:
+    #     # print mean_squared_error(y_test[ind], y_pred_test[ind]) ,len(y_test[ind])
+    #     # r=np.square(y_test[ind]-y_pred_test[ind])
+    #     # R.append(r)
+    # R=np.square(y_test[ind]-y_pred_test[ind])
+    # save( R,file[0]+'svmbox')
 
     """
-    Train SVM  and Predict
+    ===================================================================================
+    Train GP and Predict
     List MSE and STD
     """
     X_train, X_test, y_train, y_test = read_data(file[0])
     X=np.concatenate((X_train,X_test), axis=0)
     y=np.concatenate((y_train,y_test), axis=0)
-    X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.99, random_state=1)   
+    X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.97, random_state=1)   
     kernel = ConstantKernel(1.0, (1e-3, 1e3)) * RBF(10, (1e-2, 1e2))
     gp = GaussianProcessRegressor(kernel=kernel, n_restarts_optimizer=9)
 
@@ -126,21 +139,26 @@ if __SARCOS__:
     print mean_squared_error(y_train, y_pred_train)
     print mean_squared_error(y_test, y_pred_test)
 
-    tree=load_model(file[0]+'tree.pkl')
+    tree=load(file[0]+'tree.pkl')
     yt=tree.predict(X_train)
     yp=tree.predict(X_test)
     yt.sort()
     k=int(floor(len(yt)*0.01))
-    threshold=yt[k]
-    print 'Threshold:', threshold
-    inds=[yp<0.2,np.logical_and(yp>=0.2,yp<0.4), np.logical_and(yp>=0.4,yp<0.6),\
-         np.logical_and(yp>=0.6,yp<0.8),np.logical_and(yp>=0.9,yp< threshold),np.logical_and(yp>= threshold,yp<1)]
+    # threshold=yt[k]
+    # print 'Threshold:', threshold
+    # inds=[yp<0.2,np.logical_and(yp>=0.2,yp<0.4), np.logical_and(yp>=0.4,yp<0.6),\
+    #      np.logical_and(yp>=0.6,yp<0.8),np.logical_and(yp>=0.9,yp< threshold),np.logical_and(yp>= threshold,yp<1)]
     
 
 
-    for ind in inds:
-        print mean_squared_error(y_test[ind], y_pred_test[ind]) ,len(y_test[ind]),np.mean(sigma_test[ind])
+    # for ind in inds:
+    #     print mean_squared_error(y_test[ind], y_pred_test[ind]) ,len(y_test[ind]),np.mean(sigma_test[ind])
+    ind=np.argsort(yp)
+    R=np.square(y_test[ind]-y_pred_test[ind])
+    save( R,file[0]+'gpbox')
 
+    R=np.square(sigma_test[ind])
+    save( R,file[0]+'gpboxstd')
 
 
 

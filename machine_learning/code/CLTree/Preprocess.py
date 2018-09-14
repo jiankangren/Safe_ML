@@ -103,11 +103,11 @@ Store and Load Model
 -------------------------------------------------------------------
 """
 
-def save_model(obj, filename):
+def save(obj, filename):
     with open(filename, 'wb') as output:  # Overwrites any existing file.
         pickle.dump(obj, output, pickle.HIGHEST_PROTOCOL)
 
-def load_model(filename):
+def load(filename):
     with open(filename, 'rb') as input:
         return pickle.load(input)
 

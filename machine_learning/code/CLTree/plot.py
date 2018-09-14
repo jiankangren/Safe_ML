@@ -34,6 +34,9 @@ def plot_scatter(X,y,label,x_label='',y_label=''):
 
 
 
+
+
+
 if __name__ == '__main__':
 
     n=2000

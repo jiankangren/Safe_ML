@@ -6,13 +6,17 @@ In this section, we can talk about
 \end{itemize}
 
 
+
 \input{relatedworks}
 
 
 \subsection{Motivation}
 Data-driven  models are trained by ML learning algorithms using a subset of possible scenarios that could be encountered operationally.   Thus,  the models produced by ML algorithms  can only be as good as the examples that have learned.  However, the training set is usually incomplete and there is no guarantee that it is even representative of the space of possible inputs~\cite{ISO16}.  Previous study~\cite{weiss1995learning} has demonstrated that  feature space that lack of data generally have a much higher error rate.    
-
-For example, Figure~\ref{fig:toy1} shows the decision boundary learned by a SVM classifier to predict the whether a wall-following  robot is turning right sharply.  The value in the contour map represents the probability learned by the classifier that the instance belong to class ``Sharp-Right-Turn''.  As we can observe, the training samples is not  representative of testing samples at all. However, the classifier still has relative high confidence in some regions where it has not well learned but lots of many testing samples locates. As a result, a lot of testing samples that belong to other classes are misclassified as ``Sharp-Right-Turn'', and accuracy for testing samples decreases to $66\%$ while the accuracy for training samples is almost $100\%$. In practice, safety-critical scenarios like traffic accidents are very rare and ML algorithms usually do not receive enough such training samples.
+\begin{example}
+    For example, Figure~\ref{fig:toy1} shows the decision boundary learned by a SVM classifier to predict the whether a wall-following  robot is turning right sharply.  The value in the contour map represents the probability learned by the classifier that the instance belong to class ``Sharp-Right-Turn''.  As we can observe, the training samples is not  representative of testing samples at all. However, the classifier still has relative high confidence in some regions where it has not well learned but lots of many testing samples locates. As a result, a lot of testing samples that belong to other classes are misclassified as ``Sharp-Right-Turn'', and accuracy for testing samples decreases to $66\%$ while the accuracy for training samples is almost $100\%$.
+    \label{example:toy1}
+\end{example}
+In practice, safety-critical scenarios like traffic accidents are very rare and ML algorithms usually do not receive enough such training samples.
 
 
 \begin{figure}[t]
@@ -23,8 +27,30 @@ For example, Figure~\ref{fig:toy1} shows the decision boundary learned by a SVM 
 \end{figure}
 
 
-Therefore, it is very important to identify the feature space that the model is not well trained from that it does not receive enough training samples.
+\subsection{Contribution}
+
+Therefore, it is very important to classify the feature space that the ML model is well trained from that it does not receive enough training samples. Systems with ML components should avoid making predictions in feature space where the model is not well trained if a false prediction could cause huge human and economic losses.  Thus, in this paper, we propose a ``monitor'' used as a complement  to check whether for ML models have encountered a testing sample from the ``unconfident'' feature space.  We now outline a number of  desired characteristics for such a ``monitor''.\\
+
+\begin{itemize}[\textbf{Preferred Characteristics}]
+    \item  The identified  boundary of the``unconfident'' regions in the feature space are preferred to be interpretable and  understandable.  The  direct advantage of interpretable boundary is that, we could try to collect more samples from these regions (if possible) so that the model's performance in these regions could be improved.
+    \item The decision  whether a new input instance belongs to ``unconfident'' regions must the determined efficiently.  Note that,  the model will be used as a complement  to  monitor whether ML models have encountered  any input instances  from their ``unconfident'' regions.  Thus, especially for control problems,  the additional overhead from such a ``monitor'' should be as small as possible.
+    \item  After the feature space is partitioned into multiple regions, there exist some metrics to compare  between these regions and select the ``unconfident'' ones.
+\end{itemize}
+
+In this paper, we propose a efficient technique to partition the feature space into multiple hyperrectangles based on classification and regression tree~\cite{Breiman:2253780}.  The data density in these hyperrectangles is then used to determine the threshold that whether hyperrectangle should be considered as ``unconfident''.  In Figure~\ref{fig:toy2},  we show the resulting identified  ``unconfident'' regions  for  the wall-following navigation task  in Example~\ref{example:toy1}. Since most testing samples are in the ``unconfident'' regions, the classifier should avoid making predictions for these samples.
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.45\textwidth]{FIG/toy2.png}
+\caption{ Example: The ``unconfident'' regions for the Wall-following navigation task of robot SCITOS-G5 in Example~\ref{example:toy1}}
+\label{fig:toy2}
+\end{figure}
+Finally, from the experiment results in Section~\ref{sec:evaluation}, we can observe that,  ML models have much higher losses/error rates in the  ``unconfident'' regions identified by the proposed technique.
+
+
+
+
+
+
 
  % so that safety-critical systems with ML component could  REJECT OR GET MORE TRAINING SAMPLES
 
-\noindent\textbf{Desired Characteristics}
